@@ -1,0 +1,10 @@
+{
+  "devUrl": "https://dd073f6782.nxcli.io",
+  "themeName": "aberdeen",
+  "proxyUrl": "http://localhost:3000",
+  "open": true,
+  "bsWatchFiles": [
+    "**/*.php",
+    "assets/**/*.js"
+  ]
+}
