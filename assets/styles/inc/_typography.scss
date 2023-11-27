@@ -37,6 +37,8 @@ h3,
 h4,
 .h4 {
   /* basic heading styles */
+  font-size: 20px;
+  font-family: $sub-font;
 }
 
 h5,
@@ -75,13 +77,13 @@ address {
 }
 
 a {
-  color: $primary-color;
+  color: inherit;
   transition: all 0.2s ease-in-out;
 
   &:hover,
   &:focus {
     /* basic hover and focus effects */
-    color: darken($primary-color, 20);
+    color: $sun;
   }
 }
 
@@ -198,8 +200,47 @@ input[type='button'] {
 /* Button additional styles */
 
 .button {
+  background-color: $sun;
+  color: $midnight-blue;
+  font-size: 16px;
+  line-height: 22.4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 9px 0;
+  position: relative;
+
   &:hover,
   &:focus {
     /* basic hover and focus effects */
+    background-color: $sun-light;
+    color: $midnight-blue;
+  }
+}
+
+.button--arrow {
+  padding: 8px 43px 8px 16px;
+
+  &:after {
+    content: url('../../images/arrow.svg');
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    transition: all 0.5s ease-out;
+    text-transform: uppercase;
+  }
+
+  &:hover,
+  &:focus {
+    /* basic hover and focus effects */
+    background-color: $sun-light;
+    color: $midnight-blue;
+
+    &:after {
+      right: 8px;
+    }
   }
 }

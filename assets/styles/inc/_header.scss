@@ -1,4 +1,127 @@
+.header {
+  padding: 0 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: $white;
+}
+.admin-bar .header {
+  top: 32px;
+}
+
+.header-top-bar {
+  background-color: $midnight-blue;
+  padding: 8px 0;
+  margin-bottom: 24px;
+
+  .header-top-bar__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: $white;
+
+    .map-link {
+      a {
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-family: $font;
+        &:before {
+          content: url('../../images/map.svg');
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+          vertical-align: middle;
+          display: inline-block;
+        }
+        //&:before {
+        //  content: '\f279';
+        //  font-family: $fa;
+        //  color: transparent;
+        //  -webkit-text-stroke: 1px $white;
+        //  margin-right: 8px;
+        //  font-size: 14px;
+        //  vertical-align: middle;
+        //}
+      }
+    }
+
+    .header-contact-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 24px;
+      position: relative;
+
+      span,
+      a,
+      p {
+        margin-bottom: 0;
+        font-weight: 600;
+      }
+
+      .phone-number {
+        &:before {
+          content: url('../../images/phone.svg');
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+          vertical-align: middle;
+          display: inline-block;
+        }
+      }
+      .hours {
+        &:before {
+          content: url('../../images/time.svg');
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+          vertical-align: middle;
+          display: inline-block;
+        }
+      }
+
+      .search-form-container {
+        padding-left: 16px;
+        //position: relative;
+
+        .search-button-show {
+          cursor: pointer;
+          color: $white;
+        }
+
+        .search-form {
+          position: absolute;
+          right: 0;
+          left: 0;
+          top: 120%;
+          display: none;
+
+          .search {
+            //width: 250px;
+            input {
+              border-radius: 9px 0;
+            }
+          }
+        }
+
+        .search-form.show {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.header-top-bar__container,
+.menu-grid-container {
+  max-width: 1512px;
+}
+
 .logo {
+  text-align: center;
+
   h1 {
     font-size: 0;
   }

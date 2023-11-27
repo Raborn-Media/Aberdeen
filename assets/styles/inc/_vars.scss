@@ -17,11 +17,12 @@ $aqualight: #e3f3fb;
 
 //$primary-color: $blue;
 //$sub-color: $primary-color;
-
-$font: 'Open Sans', Helvetica, Roboto, Arial, sans-serif;
 $freight-sans-pro: 'freight-sans-pro', sans-serif;
 $ff-ernestine-pro: 'ff-ernestine-pro', serif;
-//$sub-font: $font;
+
+$font: $freight-sans-pro;
+$sub-font: $ff-ernestine-pro;
+
 $fa: 'Font Awesome 6 Free';
 //$fab: 'Font Awesome 6 Brands';
 

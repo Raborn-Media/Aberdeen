@@ -64,6 +64,9 @@ function resizeVideo() {
  * Scripts which runs after DOM load
  */
 $(document).on('ready', function () {
+  $('.search-button-show').on('click', function () {
+    $('.search-form').toggleClass('show');
+  });
   /**
    * Make elements equal height
    */

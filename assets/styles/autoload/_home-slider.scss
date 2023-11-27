@@ -15,6 +15,9 @@
 }
 
 .home-slider {
+  background-color: $midnight-blue;
+  position: relative;
+
   .slick-arrow {
     /* Slick arrows global styles */
   }
@@ -73,7 +76,7 @@
 
 .home-slide {
   width: 100%;
-  height: 500px; /* define the height of slide */
+  height: 848px; /* define the height of slide */
   transition: height 0.3s ease;
 
   @include breakpoint(medium down) {
@@ -89,9 +92,46 @@
 
     position: relative;
     height: 100%;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      background: linear-gradient(
+        0deg,
+        rgba(43, 58, 103, 0.8) 0%,
+        rgba(43, 57, 102, 0.7) 21.62%,
+        rgba(43, 58, 103, 0.5) 42.64%,
+        rgba(43, 58, 103, 0.2) 66.83%
+      );
+    }
   }
 
   &__caption {
     @include absolute-center;
+    //background-color: $pacificblue;
+    height: 100%;
+    z-index: 99;
+
+    h3 {
+      font-family: $sub-font;
+      text-transform: uppercase;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.42);
+      font-size: 36px;
+      margin-bottom: 24px;
+    }
+
+    .slide-info {
+      position: absolute;
+      bottom: 92px;
+      color: $white;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
   }
 }

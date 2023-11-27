@@ -1,15 +1,72 @@
 .footer {
   margin-top: auto;
+  background-color: $midnight-blue;
+  padding: 60px 0;
 }
 
 .footer__logo {
+  text-align: center;
+
   img {
-    max-height: 120px;
+    //max-height: 120px;
+    width: 100%;
   }
 }
 
 .footer__sp {
-  text-align: right;
+  margin-top: 24px;
+  text-align: center;
+
+  .stay-tuned {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+
+    &__link {
+      span {
+        width: 30px;
+        height: 30px;
+        background-color: $white;
+        display: flex;
+        font-size: 24px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: $midnight-blue;
+        border-radius: 50%;
+      }
+
+      .fa-youtube,
+      .fa-instagram {
+        color: $white;
+        background-color: transparent;
+        font-size: 28px;
+      }
+
+      .fa-instagram {
+        font-size: 32px;
+      }
+
+      .fa-facebook-f,
+      .fa-pinterest-p {
+        align-items: flex-end;
+      }
+
+      &:hover {
+        .fa-youtube,
+        .fa-instagram {
+          color: $sun;
+        }
+
+        .fa-facebook-f,
+        .fa-pinterest-p {
+          background-color: $sun;
+        }
+      }
+    }
+  }
 }
 
 .footer-menu {
@@ -33,4 +90,94 @@
   background-color: $light-gray;
   font-size: 12px;
   text-align: center;
+}
+
+.cta-section {
+  background-color: $midnight-blue;
+
+  &__container {
+    border-bottom: 1px solid $pacificblue;
+    padding: 60px 0;
+
+    .form-col {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      h4 {
+        max-width: 248px;
+        width: 100%;
+      }
+
+      .gform_fields {
+        .gfield {
+          grid-column: span 8 !important;
+        }
+        #field_submit {
+          grid-column: span 4 !important;
+
+          .gform-button {
+            background-color: $sun;
+            color: $midnight-blue;
+            font-size: 16px;
+            line-height: 22.4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 9px 0;
+            position: relative;
+            padding: 8px 43px 8px 16px;
+
+            &:after {
+              content: url('../../images/arrow.svg');
+              position: absolute;
+              width: 19px;
+              height: 19px;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 16px;
+              transition: all 0.5s ease-out;
+              text-transform: uppercase;
+            }
+
+            &:hover,
+            &:focus {
+              /* basic hover and focus effects */
+              background-color: $sun-light;
+              color: $midnight-blue;
+
+              &:after {
+                right: 8px;
+              }
+            }
+          }
+        }
+      }
+
+      .gfield {
+        margin-bottom: 0;
+      }
+
+      .gform_footer {
+        margin: 0;
+      }
+    }
+
+    .map-col {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .cta-map-info {
+        width: 50%;
+      }
+
+      .cta-map-image {
+        width: 50%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
