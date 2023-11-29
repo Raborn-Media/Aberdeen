@@ -1,5 +1,19 @@
-//.contact {
-//}
+.top-content-row {
+  background-color: $pacificblue;
+  color: $white;
+  padding: 8px;
+
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 140%; /* 22.4px */
+  }
+}
+
+.contact {
+  background: linear-gradient(180deg, #fff 0%, #e3f3fb 100%);
+  padding-bottom: 474px;
+}
 
 .contact__content {
   margin-bottom: 50px;
@@ -7,23 +21,104 @@
 
 .contact__form {
   margin-bottom: 50px;
+  background-color: $midnight-blue;
+  padding: 40px;
+  border-radius: 24px 0;
+
+  .gform-body {
+    .gform_fields {
+      grid-row-gap: 0;
+
+      .gfield {
+        margin-bottom: 24px;
+      }
+      .gfield_error {
+        margin-top: 0;
+      }
+    }
+
+    .gfield_required {
+      display: none;
+    }
+
+    .gfield_label {
+      font-family: $font;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 140%; /* 25.2px */
+      color: $white;
+      margin-bottom: 4px;
+    }
+
+    input {
+      padding: 8px 12px;
+      &::placeholder {
+        font-size: 16px;
+        font-weight: 350;
+        line-height: 140%; /* 22.4px */
+        color: $midnight-blue;
+      }
+    }
+    textarea {
+      padding: 8px 12px;
+      min-height: 127px !important;
+      max-height: 127px !important;
+      &::placeholder {
+        font-size: 16px;
+        font-weight: 350;
+        line-height: 140%; /* 22.4px */
+        color: $midnight-blue;
+      }
+    }
+  }
+
+  .gform_footer {
+    margin-top: 0 !important;
+
+    .gform_button {
+      background-color: $sun !important;
+      color: $midnight-blue !important;
+      font-size: 16px !important;
+      line-height: 22.4px !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      padding: 8px 43px 8px 16px !important;
+      border-radius: 9px 0 !important;
+      position: relative !important;
+
+      &:after {
+        content: url('../../images/arrow.svg') !important;
+        position: absolute;
+        width: 19px;
+        height: 19px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 16px;
+        transition: all 0.5s ease-out;
+        text-transform: uppercase;
+      }
+
+      &:hover,
+      &:focus {
+        /* basic hover and focus effects */
+        background-color: $sun-light;
+        color: $midnight-blue;
+
+        &:after {
+          right: 8px;
+        }
+      }
+    }
+  }
 }
 
 .contact__map-wrap {
   margin-top: 50px;
 }
 
-.contact__map {
-  height: 450px;
-}
-
-.contact__content {
-  margin-bottom: 50px;
-}
-
 .contact-link {
   position: relative;
-  padding-left: 30px;
+  //padding-left: 30px;
 
   &::before {
     content: '';
@@ -38,23 +133,23 @@
     transform: translateY(-50%);
   }
 
-  &--email {
-    &::before {
-      content: '\f0e0';
-    }
-  }
-
-  &--phone {
-    &::before {
-      content: '\f879';
-    }
-  }
-
-  &--address {
-    &::before {
-      content: '\f3c5';
-    }
-  }
+  //&--email {
+  //  &::before {
+  //    content: '\f0e0';
+  //  }
+  //}
+  //
+  //&--phone {
+  //  &::before {
+  //    content: '\f879';
+  //  }
+  //}
+  //
+  //&--address {
+  //  &::before {
+  //    content: '\f3c5';
+  //  }
+  //}
 
   a {
     color: inherit;
@@ -64,5 +159,54 @@
     &:focus {
       text-decoration: underline;
     }
+  }
+}
+
+.contact-info {
+  padding-left: 68px;
+  position: relative;
+  margin-bottom: 32px;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    aspect-ratio: 1/1;
+  }
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  p,
+  address {
+    font-family: $font;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px; /* 0% */
+  }
+}
+
+.address-info {
+  &:before {
+    content: url('../../images/map pin.png');
+  }
+}
+
+.phone-info {
+  a {
+    text-decoration: underline;
+  }
+
+  &:before {
+    content: url('../../images/phone.png');
+  }
+}
+
+.email-info {
+  &:before {
+    content: url('../../images/email.png');
+    top: -5px;
   }
 }

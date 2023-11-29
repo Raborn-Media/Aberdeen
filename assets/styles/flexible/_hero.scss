@@ -1,0 +1,16 @@
+.hero-section {
+  color: $white;
+  padding-top: 149px;
+  padding-bottom: 205px;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 95px;
+    background-image: url('../../images/hero-bottom-graphics.png');
+    background-size: 100% 100%;
+  }
+}

@@ -116,7 +116,7 @@
 
 .header-top-bar__container,
 .menu-grid-container {
-  max-width: 1512px;
+  max-width: 1368px;
 }
 
 .logo {
@@ -234,7 +234,15 @@
 
 @include breakpoint(medium) {
   /* TOP BAR STYLING */
+  .top-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
+  .menu-main-menu-container {
+    width: 100%;
+  }
   .header-menu.menu {
     /* Align menu items to the right */
     // justify-content: flex-end;
@@ -242,16 +250,43 @@
     /* Align menu items to the center */
     // justify-content: center;
 
+    // /* Align menu items to the spase-between */
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+
     li {
+      padding: 0 20px;
       > a {
         /* Regular menu item style */
-        line-height: 40px;
-        color: $primary-color;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 140%; /* 25.2px */
+        color: $midnight-blue;
+        text-transform: uppercase;
+        position: relative;
+        padding: 8px 0;
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 2px;
+          background-color: $pacificblue;
+          transition: all 0.5s ease-out;
+        }
 
         &:hover {
           /* menu item style on hover */
-          background: $primary-color;
-          color: $white;
+          //background: $primary-color;
+          //color: $white;
+          &:after {
+            transform-origin: center;
+            width: 100%;
+          }
         }
       }
 
@@ -260,8 +295,13 @@
       &.current_page_parent {
         > a {
           /* Style of Current page and Ancestor page */
-          background: $primary-color;
-          color: $white;
+          //background: $primary-color;
+          //color: $white;
+
+          &:after {
+            transform-origin: center;
+            width: 100%;
+          }
         }
       }
 

@@ -5,6 +5,11 @@
 ?>
 
 <!-- BEGIN of footer -->
+<?php if ( $cta_bg = get_field( 'cta_bg', 'options' ) ) : ?>
+    <div class="cta-bg">
+        <?php echo wp_get_attachment_image( $cta_bg['id'], 'large' ); ?>
+    </div>
+<?php endif; ?>
 <div class="cta-section">
     <div class="grid-container cta-section__container">
         <div class="grid-x">
@@ -31,6 +36,15 @@
                     <?php if ( $cta_map_link = get_field( 'cta_map_link', 'option' ) ) : ?>
                         <a href="<?php echo $cta_map_link['url']; ?>">
                             <?php echo $cta_map_link['title']; ?>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14"
+                                     fill="none">
+  <path d="M0.5 6.11145H15.6321V8.0637H0.5V6.11145Z" fill="white"/>
+  <path
+      d="M11.4343 13.6293L10.0669 12.2619L15.2418 7.08789L10.0669 1.91391L11.4343 0.546509L17.9748 7.08791L11.4343 13.6293Z"
+      fill="white"/>
+</svg>
+                            </span>
                         </a>
                     <?php endif; ?>
                 </div>

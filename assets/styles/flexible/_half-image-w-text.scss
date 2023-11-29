@@ -1,0 +1,124 @@
+.half-image-w-text-section {
+  padding-bottom: 55px;
+  overflow: hidden;
+
+  .section-row {
+    position: relative;
+    padding-top: 120px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -27px;
+      left: -195px;
+      width: 500px;
+      height: 108px;
+      background-image: url('../../images/waves.svg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      z-index: 0;
+    }
+
+    .section-image {
+      position: relative;
+      margin-right: 30px;
+      padding-right: 26px;
+
+      img {
+        border-radius: 24px 0;
+      }
+      .main-image {
+        width: 100%;
+      }
+    }
+    .section-image.with-bottom-image {
+      padding-bottom: 75px;
+      .main-image {
+        max-width: 70%;
+      }
+      .bottom-image {
+        position: absolute;
+        bottom: 0;
+        right: 26px;
+      }
+      .top-image {
+        position: absolute;
+        top: 0;
+        right: 26px;
+      }
+    }
+
+    .section-text {
+      margin-left: 30px;
+      position: relative;
+      z-index: 2;
+      &:before {
+        content: '';
+        position: absolute;
+        top: -18px;
+        right: -239px;
+        width: 500px;
+        height: 108px;
+        background-image: url('../../images/waves.svg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        z-index: -1;
+      }
+
+      h1 {
+        position: relative;
+        z-index: 3;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .section-row__reverce {
+    flex-direction: row-reverse;
+
+    &:before {
+      right: -195px;
+      left: unset;
+    }
+
+    .section-image {
+      position: relative;
+      margin-left: 30px;
+      margin-right: 0;
+      text-align: right;
+
+      img {
+        border-radius: 24px 0;
+      }
+      .main-image {
+        width: 100%;
+      }
+    }
+    .section-image.with-bottom-image {
+      .main-image {
+        max-width: 70%;
+      }
+      .bottom-image {
+        position: absolute;
+        bottom: 0;
+        right: unset;
+        left: 26px;
+      }
+      .top-image {
+        position: absolute;
+        top: 31px;
+        right: unset;
+        left: 26px;
+      }
+    }
+
+    .section-text {
+      margin-left: 0;
+      margin-right: 30px;
+      &:before {
+        left: -239px;
+        right: unset;
+      }
+    }
+  }
+}

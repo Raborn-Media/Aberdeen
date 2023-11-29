@@ -1,0 +1,119 @@
+.awards-section {
+  padding-top: 50px;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -90px;
+    width: 395px;
+    background-image: url('../../images/laurel.svg');
+    background-size: 100% 100%;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -90px;
+    width: 395px;
+    background-image: url('../../images/laurel.svg');
+    background-size: 100% 100%;
+    transform: rotateY(180deg);
+    transform-origin: center;
+  }
+
+  .top-award {
+    margin-bottom: 80px;
+
+    .awarded-by {
+      margin-top: -20px;
+    }
+  }
+
+  .awards-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 48px;
+    margin-bottom: 40px;
+
+    .award {
+      width: 100%;
+      max-width: 295px;
+      padding: 0 68px;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 68px;
+        background-image: url('../../images/svg2.svg');
+        background-size: 100% 100%;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 68px;
+        background-image: url('../../images/svg2.svg');
+        background-size: 100% 100%;
+        transform: rotateY(180deg);
+        transform-origin: center;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .award-number {
+        font-family: $sub-font;
+        font-size: 28.016px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 39px;
+        margin-top: 10px;
+      }
+
+      .award-title {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 25px;
+      }
+
+      .award-year {
+        font-size: 14.832px;
+        font-weight: 700;
+        line-height: 20px; /* 20.765px */
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .bottom-awarded-by {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 80px;
+
+    &__item {
+      padding: 0 20px;
+    }
+  }
+}

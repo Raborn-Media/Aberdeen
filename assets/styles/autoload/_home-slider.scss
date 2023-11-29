@@ -20,14 +20,28 @@
 
   .slick-arrow {
     /* Slick arrows global styles */
+    width: fit-content;
+    height: auto;
+    &:before {
+      font-size: 3rem;
+      opacity: 1;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 0.75;
+      }
+    }
   }
 
   .slick-prev {
+    left: 6rem;
     //&::before {
     //}
   }
 
   .slick-next {
+    right: 6rem;
     //&::before {
     //}
   }

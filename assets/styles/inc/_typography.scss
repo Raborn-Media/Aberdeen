@@ -22,6 +22,10 @@ h6,
 h1,
 .h1 {
   /* basic heading styles */
+  font-family: $sub-font;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 72px;
 }
 
 h2,
@@ -32,6 +36,10 @@ h2,
 h3,
 .h3 {
   /* basic heading styles */
+  font-family: $sub-font;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 43px; /* 43.2px */
 }
 
 h4,
@@ -39,11 +47,16 @@ h4,
   /* basic heading styles */
   font-size: 20px;
   font-family: $sub-font;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 h5,
 .h5 {
   /* basic heading styles */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%; /* 19.6px */
 }
 
 h6,
@@ -53,6 +66,11 @@ h6,
 
 p {
   /* basic paragraph styles */
+
+  font-family: $font;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25.2px;
   &:empty {
     display: none;
   }

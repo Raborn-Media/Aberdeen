@@ -64,6 +64,18 @@ function resizeVideo() {
  * Scripts which runs after DOM load
  */
 $(document).on('ready', function () {
+  // Get all elements of the flexible content
+  var $flexibleSections = $('.flexible-section');
+
+  // Check if there are flexible sections
+  if ($flexibleSections.length > 0) {
+    // Remove padding from all sections to reset
+    $flexibleSections.css('padding-bottom', '0');
+
+    // Add padding-bottom only to the last section
+    $flexibleSections.last().css('padding-bottom', '474px');
+  }
+
   $('.search-button-show').on('click', function () {
     $('.search-form').toggleClass('show');
   });

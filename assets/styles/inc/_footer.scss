@@ -103,16 +103,26 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      column-gap: 16px;
 
       h4 {
         max-width: 248px;
         width: 100%;
+        color: $white;
+        margin-bottom: 0;
       }
 
       .gform_fields {
         .gfield {
-          grid-column: span 8 !important;
+          grid-column: span 7 !important;
+
+          input {
+            height: 42px;
+            width: 272px;
+            border-radius: 4px;
+          }
         }
+
         #field_submit {
           grid-column: span 4 !important;
 
@@ -151,6 +161,10 @@
             }
           }
         }
+
+        &:after {
+          display: none;
+        }
       }
 
       .gfield {
@@ -166,9 +180,42 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      padding-left: 20px;
 
       .cta-map-info {
         width: 50%;
+
+        h4 {
+          color: $white;
+          margin-bottom: 16px;
+        }
+
+        a {
+          color: $white;
+          font-weight: 600;
+          text-transform: uppercase;
+          display: inline-block;
+          font-size: 16px;
+          line-height: 140%; /* 22.4px */
+
+          span {
+            margin-left: 12px;
+            margin-bottom: 0;
+            vertical-align: middle;
+          }
+
+          &:hover {
+            color: $sun;
+            transition: all 0.5s ease-out;
+
+            svg {
+              path {
+                fill: $sun;
+                transition: all 0.5s ease-out;
+              }
+            }
+          }
+        }
       }
 
       .cta-map-image {
@@ -179,5 +226,21 @@
         }
       }
     }
+  }
+}
+
+.cta-bg {
+  height: 474px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: -5px;
+  margin-top: -474px;
+
+  img {
+    height: 301px;
+    width: 100%;
+    object-position: bottom;
+    //object-fit: cover;
   }
 }
