@@ -57,7 +57,7 @@ array_map(function ($file) {
     'custom-fields-search',
     'google-maps',
     'tiny-mce-customizations',
-    'posttypes',
+//    'posttypes',
     'rest',
 //    'gutenberg-support', // !!!IMPORTANT  Comment line 159 for enable Gutenberg
 //    'woo-customizations',

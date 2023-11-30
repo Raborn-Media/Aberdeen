@@ -1,0 +1,139 @@
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-l-container {
+  padding: 0 !important;
+}
+
+.tribe-events-calendar-list__month-separator {
+  display: none !important;
+}
+
+.tribe-common--breakpoint-medium.tribe-events
+  .tribe-events-calendar-list__event {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  border: 2px solid $aqualight;
+  border-radius: 9px 0px;
+  overflow: hidden !important;
+}
+
+.event-image {
+  padding: 0 !important;
+  max-width: 278px;
+}
+
+.event-info {
+  width: 100%;
+  padding: 40px !important;
+  max-width: 100%;
+}
+
+.top-date {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 24px */
+  font-family: $sub-font;
+}
+
+kbd {
+  display: none;
+}
+.tribe-common--breakpoint-medium.tribe-common .tribe-common-h4--min-medium {
+  margin-bottom: 0 !important;
+  line-height: 1 !important;
+}
+
+.tribe-common .tribe-events-calendar-list__event-title-link {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 43.2px */
+  text-transform: uppercase;
+  color: $pacificblue !important;
+  font-family: $sub-font;
+}
+
+.event-buttons {
+  margin-top: 16px !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+
+  .button {
+    background-color: $sun;
+    color: $midnight-blue;
+    font-size: 16px;
+    line-height: 22.4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 9px 0;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      /* basic hover and focus effects */
+      background-color: $sun-light;
+      color: $midnight-blue;
+    }
+  }
+
+  .button--arrow {
+    padding: 8px 43px 8px 16px;
+
+    &:after {
+      content: url('../../images/arrow.svg');
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 16px;
+      transition: all 0.5s ease-out;
+      text-transform: uppercase;
+    }
+
+    &:hover,
+    &:focus {
+      /* basic hover and focus effects */
+      background-color: $sun-light;
+      color: $midnight-blue;
+
+      &:after {
+        right: 8px;
+      }
+    }
+  }
+
+  .button--pin,
+  .button--web {
+    background-color: $secondary-sun;
+    padding: 8px 16px 8px 43px;
+
+    &:after {
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 16px;
+      transition: all 0.5s ease-out;
+      text-transform: uppercase;
+    }
+  }
+  .button--pin {
+
+    &:after {
+      content: url('../../images/pin.svg');
+    }
+  }
+  .button--web {
+
+    &:after {
+      content: url('../../images/globe.svg');
+    }
+  }
+}

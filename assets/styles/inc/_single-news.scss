@@ -1,0 +1,110 @@
+.single-news {
+  .main-content {
+    padding-top: 76px;
+    padding-bottom: 500px;
+    background: linear-gradient(180deg, #fff 0%, #e3f3fb 100%);
+
+    .post-container {
+      max-width: 792px;
+    }
+
+    .post-date {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 140%; /* 19.6px */
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .news-title {
+      margin-bottom: 8px;
+    }
+
+    .entry {
+      &__content {
+        img {
+          width: 100%;
+          margin: 0 auto;
+          border-radius: 24px 0;
+        }
+
+        h5 {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 140%; /* 19.6px */
+          letter-spacing: 2.8px;
+          text-transform: uppercase;
+          color: #196fb8;
+          margin-bottom: 16px;
+        }
+
+        blockquote {
+          background-color: $greenpealight;
+          border-left: 16px solid $greenpea;
+          border-radius: 8px;
+          padding: 32px 48px 32px 32px;
+          font-size: 18px;
+          font-style: italic;
+          font-weight: 500;
+          line-height: 140%; /* 25.2px */
+          margin-bottom: 32px;
+
+          p {
+            margin-bottom: 15px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        p {
+          margin-bottom: 32px;
+        }
+      }
+    }
+  }
+}
+
+#author-info {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+
+  img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 350;
+    line-height: 140%; /* 25.2px */
+    color: rgba($oxfordblue, 0.8);
+    margin-bottom: 0;
+  }
+}
+.post-terms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  //padding: 16px 56px 16px 0;
+  padding: 16px 24px 16px 0;
+  border-bottom: 2px solid #f2f2f2;
+  border-top: 2px solid #f2f2f2;
+  margin-bottom: 32px;
+
+  .term {
+    display: flex;
+    padding: 8px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    background-color: $secondary-sun;
+  }
+}
