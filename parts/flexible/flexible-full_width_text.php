@@ -9,18 +9,20 @@ $section_text = get_sub_field( 'section_text' );
     <div class="grid-container">
         <div class="grid-x">
             <div class="cell text-center">
-                <?php if ( $section_icon ) : ?>
-                    <div class="section-icon">
-                        <div class="section-icon__wrap">
-                            <?php echo display_svg( $section_icon, 'icon' ); ?>
+                <div class="section-heading">
+                    <?php if ( $section_icon ) : ?>
+                        <div class="section-icon">
+                            <div class="section-icon__wrap">
+                                <?php echo display_svg( $section_icon, 'icon' ); ?>
+                            </div>
                         </div>
-                    </div>
-                <?php endif; ?>
-                <?php if ( $section_title ) : ?>
-                    <h3 class="section-title">
-                        <?php echo $section_title; ?>
-                    </h3>
-                <?php endif; ?>
+                    <?php endif; ?>
+                    <?php if ( $section_title ) : ?>
+                        <h3 class="section-title">
+                            <?php echo $section_title; ?>
+                        </h3>
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="cell">
                 <div class="section-text">

@@ -83,7 +83,7 @@ $(document).on('ready', function () {
   // Check if there are flexible sections
   if ($flexibleSections.length > 0) {
     // Remove padding from all sections to reset
-    $flexibleSections.css('padding-bottom', '0');
+    // $flexibleSections.css('padding-bottom', '0');
 
     // Add padding-bottom only to the last section
     $flexibleSections.last().css('padding-bottom', '474px');

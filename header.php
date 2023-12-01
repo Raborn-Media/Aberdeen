@@ -33,7 +33,7 @@
     <div class='header-top-bar'>
         <div class='grid-container header-top-bar__container'>
             <div class="map-link">
-                <a href=""><?php _e( 'Map' ); ?></a>
+                <a href="/map"><?php _e( 'Map' ); ?></a>
             </div>
             <div class="header-contact-info">
                 <?php if ( $phone = get_field( 'phone', 'options' ) ) : ?>

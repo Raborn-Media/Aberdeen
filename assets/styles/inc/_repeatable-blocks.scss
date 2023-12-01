@@ -81,3 +81,48 @@
   width: 100%;
   height: 100%;
 }
+
+/* ---------------------------------------
+	Section heading
+--------------------------------------- */
+
+.section-heading {
+  .section-icon {
+    overflow: hidden;
+    margin-bottom: 30px;
+    &__wrap {
+      width: 87px;
+      height: 87px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -24px;
+        transform: translateX(-100%) translateY(-50%);
+        width: 400px;
+        height: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='405' height='26' viewBox='0 0 405 26' fill='none'%3E%3Cpath d='M2.5 12.5879C15.8333 -0.745442 29.1667 -0.745442 42.5 12.5879C55.8333 25.9212 69.1667 25.9212 82.5 12.5879C95.8333 -0.745442 109.167 -0.745442 122.5 12.5879C135.833 25.9212 149.167 25.9212 162.5 12.5879C175.833 -0.745442 189.167 -0.745442 202.5 12.5879C215.833 25.9212 229.167 25.9212 242.5 12.5879C255.833 -0.745442 269.167 -0.745442 282.5 12.5879C295.833 25.9212 309.167 25.9212 322.5 12.5879C335.833 -0.745442 349.167 -0.745442 362.5 12.5879C375.833 25.9212 389.167 25.9212 402.5 12.5879' stroke='%23E3F3FB' stroke-width='5'/%3E%3C/svg%3E");
+        background-size: 100% 100%;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -24px;
+        transform: translateX(100%) translateY(-50%);
+        width: 400px;
+        height: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='405' height='26' viewBox='0 0 405 26' fill='none'%3E%3Cpath d='M2.5 12.5879C15.8333 -0.745442 29.1667 -0.745442 42.5 12.5879C55.8333 25.9212 69.1667 25.9212 82.5 12.5879C95.8333 -0.745442 109.167 -0.745442 122.5 12.5879C135.833 25.9212 149.167 25.9212 162.5 12.5879C175.833 -0.745442 189.167 -0.745442 202.5 12.5879C215.833 25.9212 229.167 25.9212 242.5 12.5879C255.833 -0.745442 269.167 -0.745442 282.5 12.5879C295.833 25.9212 309.167 25.9212 322.5 12.5879C335.833 -0.745442 349.167 -0.745442 362.5 12.5879C375.833 25.9212 389.167 25.9212 402.5 12.5879' stroke='%23E3F3FB' stroke-width='5'/%3E%3C/svg%3E");
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  .section-title {
+    margin-bottom: 30px;
+  }
+}

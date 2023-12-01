@@ -1,0 +1,69 @@
+.relocate-section {
+  padding: 80px 0;
+
+  .section-image {
+    margin-right: 30px;
+    border-radius: 9px 0;
+    overflow: hidden;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      background-image: url('../../images/Pattern.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      //background-position: 65%;
+      width: 100%;
+      height: 22px;
+      bottom: -1px;
+      left: 0;
+      z-index: 10;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+  .section-text {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    h3 {
+      margin-bottom: 24px;
+    }
+
+    h5 {
+      color: $pacificblue;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 24px;
+    }
+
+    .button {
+      max-width: fit-content;
+    }
+  }
+
+  .section-row__reverce {
+    .section-image {
+      position: relative;
+      margin-left: 30px;
+      margin-right: 0;
+      text-align: right;
+    }
+
+    .section-text {
+      margin-left: 0;
+      margin-right: 30px;
+    }
+  }
+}
+
+.aqua-bg {
+  background-color: $aqualight;
+}
