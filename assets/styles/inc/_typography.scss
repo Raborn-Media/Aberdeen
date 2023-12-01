@@ -217,6 +217,7 @@ input[type='button'] {
 
 /* Button additional styles */
 
+.sbi_load_btn,
 .button {
   background-color: $sun;
   color: $midnight-blue;
@@ -225,7 +226,7 @@ input[type='button'] {
   font-weight: 600;
   text-transform: uppercase;
   padding: 8px 16px;
-  border-radius: 9px 0;
+  border-radius: 9px 0 !important;
   position: relative;
 
   &:hover,
@@ -236,8 +237,9 @@ input[type='button'] {
   }
 }
 
+.sbi_load_btn,
 .button--arrow {
-  padding: 8px 43px 8px 16px;
+  padding: 8px 43px 8px 16px !important;
 
   &:after {
     content: url('../../images/arrow.svg');
@@ -261,4 +263,42 @@ input[type='button'] {
       right: 8px;
     }
   }
+}
+
+.sbi_follow_btn a,
+.button--pin,
+.button--web {
+  background-color: $secondary-sun;
+  padding: 8px 16px 8px 43px;
+  border-radius: 9px 0 !important;
+
+  &:after {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+    transition: all 0.5s ease-out;
+    text-transform: uppercase;
+  }
+}
+.button--pin {
+  &:after {
+    content: url('../../images/pin.svg');
+  }
+}
+.button--web {
+  &:after {
+    content: url('../../images/globe.svg');
+  }
+}
+
+.sbi_follow_btn a {
+  color: $midnight-blue;
+  font-size: 16px;
+  line-height: 22.4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 16px;
 }

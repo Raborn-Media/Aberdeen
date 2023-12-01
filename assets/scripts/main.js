@@ -64,6 +64,19 @@ function resizeVideo() {
  * Scripts which runs after DOM load
  */
 $(document).on('ready', function () {
+  /**
+   * News/Events slider
+   */
+  $('.post-slider').slick({
+    dots: false,
+    infinite: true,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    // nextArrow: '.slick-next',
+    // prevArrow: '.slick-prev',
+  });
   // Get all elements of the flexible content
   var $flexibleSections = $('.flexible-section');
 

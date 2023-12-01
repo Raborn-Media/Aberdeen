@@ -70,7 +70,10 @@ $event_classes = tribe_get_post_class([
 
                 </header>
 
-                <?php $this->template('list/event/description', [ 'event' => $event ]); ?>
+<!--                --><?php //$this->template('list/event/description', [ 'event' => $event ]); ?>
+                <?php $text = get_the_excerpt();
+                echo wp_trim_words($text, 25, ' ...');
+                ?>
 
                 <div class="event-buttons">
                     <a href="<?php echo esc_url($event->permalink); ?>" class="button button--arrow">
@@ -88,5 +91,4 @@ $event_classes = tribe_get_post_class([
 
         </article>
     </div>
-
 </div>

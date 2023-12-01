@@ -1,3 +1,7 @@
+.tribe-events {
+  padding-bottom: 80px;
+}
+
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-l-container {
   padding: 0 !important;
 }
@@ -19,6 +23,15 @@
 .event-image {
   padding: 0 !important;
   max-width: 278px;
+
+  a {
+    height: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
 
 .event-info {
@@ -125,13 +138,11 @@ kbd {
     }
   }
   .button--pin {
-
     &:after {
       content: url('../../images/pin.svg');
     }
   }
   .button--web {
-
     &:after {
       content: url('../../images/globe.svg');
     }
