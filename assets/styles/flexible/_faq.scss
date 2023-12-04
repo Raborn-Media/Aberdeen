@@ -1,0 +1,47 @@
+.faq-section {
+  .accordion {
+    &-item {
+      background-color: $midnight-blue;
+      margin-bottom: 16px;
+
+      .accordion-title {
+        color: $white;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 120%; /* 24px */
+        font-family: $sub-font;
+        padding: 24px 80px 24px 40px;
+        position: relative;
+
+        &:before {
+          content: '\2b';
+          font-family: $fa;
+          font-size: 22px;
+          transform: translateY(-50%);
+          margin-top: 0;
+          right: 40px;
+        }
+
+        &:hover {
+          background-color: $midnight-blue;
+        }
+      }
+
+      .accordion-content {
+        border: none;
+        padding: 18px 40px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 140%; /* 25.2px */
+      }
+
+      &.is-active {
+        .accordion-title {
+          &:before {
+            content: '\f068';
+          }
+        }
+      }
+    }
+  }
+}

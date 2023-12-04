@@ -10,7 +10,7 @@ import { Timer } from 'foundation-sites/js/foundation.util.timer';
 import { Touch } from 'foundation-sites/js/foundation.util.touch';
 import { Triggers } from 'foundation-sites/js/foundation.util.triggers';
 // import { Abide } from 'foundation-sites/js/foundation.abide';
-// import { Accordion } from 'foundation-sites/js/foundation.accordion';
+import { Accordion } from 'foundation-sites/js/foundation.accordion';
 import { AccordionMenu } from 'foundation-sites/js/foundation.accordionMenu';
 // import { Drilldown } from 'foundation-sites/js/foundation.drilldown';
 // import { Dropdown } from 'foundation-sites/js/foundation.dropdown';
