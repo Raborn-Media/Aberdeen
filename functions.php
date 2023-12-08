@@ -234,9 +234,13 @@ function ajax_filter_get_posts() {
             );
             ?>
         </div>
-        <div id="pagination-info">
-            Page <span id="current-page"></span> of <span id="total-pages"></span>
-        </div>
+        <?php
+        $activities_max_num_pages = $activities->max_num_pages;
+        if ( $activities_max_num_pages > 1 ) : ?>
+            <div id="pagination-info">
+                Page <span id="current-page"></span> of <span id="total-pages"></span>
+            </div>
+        <?php endif; ?>
     </div>
     <?php
     $data = ob_get_clean();
@@ -245,3 +249,101 @@ function ajax_filter_get_posts() {
 
 add_action( 'wp_ajax_filter_posts', 'ajax_filter_get_posts' );
 add_action( 'wp_ajax_nopriv_filter_posts', 'ajax_filter_get_posts' );
+
+function ajax_institutions_pagination() {
+    $paged             = $_POST['paged'];
+    $post_type_to_show = $_POST['postType'];
+
+
+    $args         = array(
+        'post_type'      => $post_type_to_show,
+        'order'          => 'ASC',
+        'orderby'        => 'ID',
+        'posts_per_page' => 10,
+        'paged'          => $paged,
+        // Add pagination
+    );
+    $institutions = new WP_Query( $args );
+    ob_start(); ?>
+    <div class="institutions-list" data-post-type="<?php echo $post_type_to_show; ?>">
+        <?php
+        while ( $institutions->have_posts() ) :
+            $institutions->the_post();
+            $post_type = get_post_type();
+
+            $icon        = get_field( 'icon' );
+            $description = get_field( 'description' );
+            $city        = get_field( 'city' );
+            ?>
+            <!-- the loop -->
+
+            <a href="<?php the_permalink() ?>" class="institutions-list__item">
+                    <div class="institution-icon">
+                        <div class="icon-wrap">
+                            <?php if ( $icon ) : ?>
+                                <?php echo display_svg( $icon ); ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="institution-info">
+                        <h4><?php the_title(); ?></h4>
+                        <?php if ( $post_type == 'hotels' ) : ?>
+                            <?php if ( $city ) : ?>
+                                <p class="institution-description">
+                                    <?php echo $city; ?>
+                                </p>
+                            <?php endif; ?>
+                        <?php else : ?>
+                            <?php if ( $description ) : ?>
+                                <p class="institution-description">
+                                    <?php echo $description; ?>
+                                </p>
+                            <?php else : ?>
+                                <p class="institution-description">
+                                    <?php _e( '---' ); ?>
+                                </p>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+            </a>
+
+        <?php endwhile;
+        wp_reset_postdata(); ?>
+        <div class="pagination-wrap">
+
+            <div class="pagination"
+                 data-current-page="<?php echo esc_attr( $paged ); ?>"
+                 data-total-pages="<?php echo esc_attr( $institutions->max_num_pages ); ?>">
+                <?php
+
+                // Pagination
+                $big = 999999999; // An unlikely integer
+
+                echo paginate_links(
+                    array(
+                        'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                        'format'    => '?paged=%#%',
+                        'current'   => max( 1, $paged ),
+                        'total'     => $institutions->max_num_pages, // Use $activities to get total pages
+                        'prev_text' => '',
+                        'next_text' => '',
+                    )
+                );
+                ?>
+            </div>
+            <?php
+            $institutions_max_num_pages = $institutions->max_num_pages;
+            if ( $institutions_max_num_pages > 1 ) : ?>
+                <div id="pagination-info">
+                    Page <span id="current-page"></span> of <span id="total-pages"></span>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php
+    $data = ob_get_clean();
+    wp_send_json( [ 'data' => $data ] );
+}
+
+add_action( 'wp_ajax_ajax_institutions_pagination', 'ajax_institutions_pagination' );
+add_action( 'wp_ajax_nopriv_ajax_institutions_pagination', 'ajax_institutions_pagination' );

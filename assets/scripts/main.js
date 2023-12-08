@@ -64,136 +64,6 @@ function resizeVideo() {
  * Scripts which runs after DOM load
  */
 $(document).on('ready', function () {
-  /*
-  Ajax Filter Activities
-   */
-  let filters = $('.tax-filter');
-  filters.on('change', function () {
-    let activity = $('#activity_types option:selected').attr('title');
-    let accessibility = $('#accessibility option:selected').attr('title');
-    let duration = $('#duration option:selected').attr('title');
-    $.ajax({
-      type: 'POST',
-      url: ajax_object.ajax_url, // get from wp_localize_script()
-      data: {
-        action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
-        activity_types: activity,
-        accessibility: accessibility,
-        duration: duration,
-        paged: 1,
-      },
-
-      beforeSend: function () {
-        // button.text('Loading...'); // change the button text, you can also add a preloader image
-      },
-      success: function (data) {
-        $('.activities-wrap').html(data.data); // insert new posts
-      },
-    });
-  });
-
-  // Add event listener for pagination links
-  // $(document).on('click', '.pagination a', function (e) {
-  //   e.preventDefault();
-  //   let page = $(this).text(); // Extract page number from link
-  //   if ($(this).hasClass('next')) {
-  //     page = parseInt($('.pagination .current').text()) + 1;
-  //   }
-  //   if ($(this).hasClass('prev')) {
-  //     page = parseInt($('.pagination .current').text()) - 1;
-  //   }
-  //   let activity = $('#activity_types option:selected').attr('title');
-  //   let accessibility = $('#accessibility option:selected').attr('title');
-  //   let duration = $('#duration option:selected').attr('title');
-  //
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: ajax_object.ajax_url, // get from wp_localize_script()
-  //     data: {
-  //       action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
-  //       activity_types: activity,
-  //       accessibility: accessibility,
-  //       duration: duration,
-  //       paged: page,
-  //     },
-  //     beforeSend() {},
-  //     success: function (data) {
-  //       $('.activities-wrap').html(data.data); // insert new posts
-  //     },
-  //   });
-  // });
-  // Add event listener for pagination links
-  $(document).on('click', '.pagination a', function (e) {
-    e.preventDefault();
-    let page = $(this).text(); // Extract page number from link
-    if ($(this).hasClass('next')) {
-      page = parseInt($('.pagination .current').text()) + 1;
-    }
-    if ($(this).hasClass('prev')) {
-      page = parseInt($('.pagination .current').text()) - 1;
-    }
-
-    let activity = $('#activity_types option:selected').attr('title');
-    let accessibility = $('#accessibility option:selected').attr('title');
-    let duration = $('#duration option:selected').attr('title');
-
-    $.ajax({
-      type: 'POST',
-      url: ajax_object.ajax_url, // get from wp_localize_script()
-      data: {
-        action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
-        activity_types: activity,
-        accessibility: accessibility,
-        duration: duration,
-        paged: page,
-      },
-      beforeSend() {},
-      success: function (data) {
-        $('.activities-wrap').html(data.data); // insert new posts
-
-        // Update pagination info
-        const pagination = document.querySelector('.pagination');
-        const currentPage = parseInt(
-          pagination.getAttribute('data-current-page'),
-          10
-        );
-        const totalPages = parseInt(
-          pagination.getAttribute('data-total-pages'),
-          10
-        );
-        const paginationInfo = document.getElementById('pagination-info');
-        paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
-      },
-    });
-  });
-
-  const pagination = document.querySelector('.pagination');
-
-  // Get current page and total pages from data attributes
-  const currentPage = parseInt(
-    pagination.getAttribute('data-current-page'),
-    10
-  );
-  const totalPages = parseInt(pagination.getAttribute('data-total-pages'), 10);
-
-  // Get reference to the pagination info div
-  const paginationInfo = document.getElementById('pagination-info');
-
-  // Update the text content of the elements with the current and total pages
-  paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
-  /**
-   * News/Events slider
-   */
-  $('.post-slider').slick({
-    dots: false,
-    infinite: true,
-    arrows: true,
-    speed: 300,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    // nextArrow: '.slick-next',
-    // prevArrow: '.slick-prev',
-  });
   // Get all elements of the flexible content
   var $flexibleSections = $('.flexible-section');
 
@@ -205,6 +75,19 @@ $(document).on('ready', function () {
     // Add padding-bottom only to the last section
     $flexibleSections.last().css('padding-bottom', '474px');
   }
+  /**
+   * News/Events slider
+   */
+  $('.post-slider').slick({
+    dots: true,
+    infinite: true,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    // nextArrow: '.slick-next',
+    // prevArrow: '.slick-prev',
+  });
 
   $('.search-button-show').on('click', function () {
     $('.search-form').toggleClass('show');
@@ -372,6 +255,7 @@ $(window).on('resize', function () {
 $(window).on('scroll', function () {
   // jQuery code goes here
 });
+
 /* global google */
 
 /**
@@ -490,3 +374,149 @@ $(document).ready(function () {
     initMap($(this));
   });
 });
+
+/*
+ Ajax Filter Activities
+  */
+let filters = $('.tax-filter');
+filters.on('change', function () {
+  let activity = $('#activity_types option:selected').attr('title');
+  let accessibility = $('#accessibility option:selected').attr('title');
+  let duration = $('#duration option:selected').attr('title');
+  $.ajax({
+    type: 'POST',
+    url: ajax_object.ajax_url, // get from wp_localize_script()
+    data: {
+      action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
+      activity_types: activity,
+      accessibility: accessibility,
+      duration: duration,
+      paged: 1,
+    },
+
+    beforeSend: function () {
+      // button.text('Loading...'); // change the button text, you can also add a preloader image
+    },
+    // success: function (data) {
+    //   $('.activities-wrap').html(data.data); // insert new posts
+    // },
+    success: function (data) {
+      $('.activities-wrap').html(data.data); // insert new posts
+
+      // Update pagination info if pagination is present
+      const pagination = document.querySelector('.pagination');
+      if (pagination) {
+        const currentPage = parseInt(
+          pagination.getAttribute('data-current-page'),
+          10
+        );
+        const totalPages = parseInt(
+          pagination.getAttribute('data-total-pages'),
+          10
+        );
+        const paginationInfo = document.getElementById('pagination-info');
+        paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+      }
+    },
+  });
+});
+
+$(document).on('click', '.pagination a', function (e) {
+  e.preventDefault();
+  let page = $(this).text(); // Extract page number from link
+  if ($(this).hasClass('next')) {
+    page = parseInt($('.pagination .current').text()) + 1;
+  }
+  if ($(this).hasClass('prev')) {
+    page = parseInt($('.pagination .current').text()) - 1;
+  }
+  let postType = $('.institutions-list').data('post-type');
+
+  $.ajax({
+    type: 'POST',
+    url: ajax_object.ajax_url, // get from wp_localize_script()
+    data: {
+      action: 'ajax_institutions_pagination', // action for wp_ajax_ & wp_ajax_nopriv_
+      postType: postType,
+      paged: page,
+    },
+    beforeSend() {},
+    success: function (data) {
+      $('.institutions-list-wrap').html(data.data); // insert new posts
+
+      // Update pagination info if pagination is present
+      const pagination = document.querySelector('.pagination');
+      if (pagination) {
+        const currentPage = parseInt(
+          pagination.getAttribute('data-current-page'),
+          10
+        );
+        const totalPages = parseInt(
+          pagination.getAttribute('data-total-pages'),
+          10
+        );
+        const paginationInfo = document.getElementById('pagination-info');
+        paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+      }
+    },
+  });
+});
+$(document).on('click', '.pagination a', function (e) {
+  e.preventDefault();
+  let page = $(this).text(); // Extract page number from link
+  if ($(this).hasClass('next')) {
+    page = parseInt($('.pagination .current').text()) + 1;
+  }
+  if ($(this).hasClass('prev')) {
+    page = parseInt($('.pagination .current').text()) - 1;
+  }
+
+  let activity = $('#activity_types option:selected').attr('title');
+  let accessibility = $('#accessibility option:selected').attr('title');
+  let duration = $('#duration option:selected').attr('title');
+
+  $.ajax({
+    type: 'POST',
+    url: ajax_object.ajax_url, // get from wp_localize_script()
+    data: {
+      action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
+      activity_types: activity,
+      accessibility: accessibility,
+      duration: duration,
+      paged: page,
+    },
+    beforeSend() {},
+    success: function (data) {
+      $('.activities-wrap').html(data.data); // insert new posts
+
+      // Update pagination info if pagination is present
+      const pagination = document.querySelector('.pagination');
+      if (pagination) {
+        const currentPage = parseInt(
+          pagination.getAttribute('data-current-page'),
+          10
+        );
+        const totalPages = parseInt(
+          pagination.getAttribute('data-total-pages'),
+          10
+        );
+        const paginationInfo = document.getElementById('pagination-info');
+        paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+      }
+    },
+  });
+});
+
+const pagination = document.querySelector('.pagination');
+
+// Get current page and total pages from data attributes
+const currentPage = parseInt(pagination.getAttribute('data-current-page'), 10);
+const totalPages = parseInt(pagination.getAttribute('data-total-pages'), 10);
+
+// Get reference to the pagination info div
+const paginationInfo = document.getElementById('pagination-info');
+
+// Update the text content of the elements with the current and total pages
+if (pagination) {
+  paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+}
