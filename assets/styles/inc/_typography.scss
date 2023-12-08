@@ -73,6 +73,7 @@ p {
   font-size: 18px;
   font-weight: 500;
   line-height: 25.2px;
+
   &:empty {
     display: none;
   }
@@ -285,11 +286,13 @@ input[type='button'] {
     text-transform: uppercase;
   }
 }
+
 .button--pin {
   &:after {
     content: url('../../images/pin.svg');
   }
 }
+
 .button--web {
   &:after {
     content: url('../../images/globe.svg');
@@ -320,4 +323,41 @@ input[type='button'] {
 iframe {
   width: 100%;
   max-height: 450px;
+}
+
+.pagination-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  //column-gap: 24px;
+  margin-top: 32px;
+
+  .page-numbers {
+    font-size: 16px;
+    line-height: 140%; /* 22.4px */
+    margin-right: 24px;
+
+    &.next,
+    &.prev {
+      display: none;
+    }
+
+    &.current {
+      font-weight: 600;
+    }
+  }
+}
+
+#pagination-info {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%; /* 22.4px */
 }

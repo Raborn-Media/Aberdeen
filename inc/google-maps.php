@@ -1,6 +1,8 @@
 <?php
 /**
  * Google maps integration
+ *
+ * AIzaSyDc9k4BjdtF_ZyZhg0Sp3ehjAfJj264toQ
  */
 
 $default_google_maps_api_key = 'AIzaSyBgg23TIs_tBSpNQa8RC0b7fuV4SOVN840';

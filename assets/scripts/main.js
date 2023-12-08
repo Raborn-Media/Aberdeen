@@ -1,6 +1,6 @@
 // Import everything from autoload folder
 import './autoload/**/*'; // eslint-disable-line
-
+/*global  ajax_object*/
 // Import local dependencies
 import './plugins/lazyload';
 import './plugins/modernizr.min';
@@ -64,6 +64,123 @@ function resizeVideo() {
  * Scripts which runs after DOM load
  */
 $(document).on('ready', function () {
+  /*
+  Ajax Filter Activities
+   */
+  let filters = $('.tax-filter');
+  filters.on('change', function () {
+    let activity = $('#activity_types option:selected').attr('title');
+    let accessibility = $('#accessibility option:selected').attr('title');
+    let duration = $('#duration option:selected').attr('title');
+    $.ajax({
+      type: 'POST',
+      url: ajax_object.ajax_url, // get from wp_localize_script()
+      data: {
+        action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
+        activity_types: activity,
+        accessibility: accessibility,
+        duration: duration,
+        paged: 1,
+      },
+
+      beforeSend: function () {
+        // button.text('Loading...'); // change the button text, you can also add a preloader image
+      },
+      success: function (data) {
+        $('.activities-wrap').html(data.data); // insert new posts
+      },
+    });
+  });
+
+  // Add event listener for pagination links
+  // $(document).on('click', '.pagination a', function (e) {
+  //   e.preventDefault();
+  //   let page = $(this).text(); // Extract page number from link
+  //   if ($(this).hasClass('next')) {
+  //     page = parseInt($('.pagination .current').text()) + 1;
+  //   }
+  //   if ($(this).hasClass('prev')) {
+  //     page = parseInt($('.pagination .current').text()) - 1;
+  //   }
+  //   let activity = $('#activity_types option:selected').attr('title');
+  //   let accessibility = $('#accessibility option:selected').attr('title');
+  //   let duration = $('#duration option:selected').attr('title');
+  //
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: ajax_object.ajax_url, // get from wp_localize_script()
+  //     data: {
+  //       action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
+  //       activity_types: activity,
+  //       accessibility: accessibility,
+  //       duration: duration,
+  //       paged: page,
+  //     },
+  //     beforeSend() {},
+  //     success: function (data) {
+  //       $('.activities-wrap').html(data.data); // insert new posts
+  //     },
+  //   });
+  // });
+  // Add event listener for pagination links
+  $(document).on('click', '.pagination a', function (e) {
+    e.preventDefault();
+    let page = $(this).text(); // Extract page number from link
+    if ($(this).hasClass('next')) {
+      page = parseInt($('.pagination .current').text()) + 1;
+    }
+    if ($(this).hasClass('prev')) {
+      page = parseInt($('.pagination .current').text()) - 1;
+    }
+
+    let activity = $('#activity_types option:selected').attr('title');
+    let accessibility = $('#accessibility option:selected').attr('title');
+    let duration = $('#duration option:selected').attr('title');
+
+    $.ajax({
+      type: 'POST',
+      url: ajax_object.ajax_url, // get from wp_localize_script()
+      data: {
+        action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
+        activity_types: activity,
+        accessibility: accessibility,
+        duration: duration,
+        paged: page,
+      },
+      beforeSend() {},
+      success: function (data) {
+        $('.activities-wrap').html(data.data); // insert new posts
+
+        // Update pagination info
+        const pagination = document.querySelector('.pagination');
+        const currentPage = parseInt(
+          pagination.getAttribute('data-current-page'),
+          10
+        );
+        const totalPages = parseInt(
+          pagination.getAttribute('data-total-pages'),
+          10
+        );
+        const paginationInfo = document.getElementById('pagination-info');
+        paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+      },
+    });
+  });
+
+  const pagination = document.querySelector('.pagination');
+
+  // Get current page and total pages from data attributes
+  const currentPage = parseInt(
+    pagination.getAttribute('data-current-page'),
+    10
+  );
+  const totalPages = parseInt(pagination.getAttribute('data-total-pages'), 10);
+
+  // Get reference to the pagination info div
+  const paginationInfo = document.getElementById('pagination-info');
+
+  // Update the text content of the elements with the current and total pages
+  paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
   /**
    * News/Events slider
    */
@@ -254,4 +371,122 @@ $(window).on('resize', function () {
  */
 $(window).on('scroll', function () {
   // jQuery code goes here
+});
+/* global google */
+
+/**
+ * initMap
+ *
+ * Renders a Google Map onto the selected jQuery element
+ *
+ * @date    22/10/19
+ * @since   5.8.6
+ *
+ * @param   jQuery $el The jQuery element.
+ * @return  object The map instance.
+ */
+function initMap($el) {
+  // Find marker elements within map.
+  var $markers = $el.find('.marker');
+
+  // Create gerenic map.
+  var mapArgs = {
+    zoom: $el.data('zoom') || 16,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+  };
+  var map = new google.maps.Map($el[0], mapArgs);
+
+  // Add markers.
+  map.markers = [];
+  $markers.each(function () {
+    initMarker($(this), map);
+  });
+
+  // Center map based on markers.
+  centerMap(map);
+
+  // Return map instance.
+  return map;
+}
+
+/**
+ * initMarker
+ *
+ * Creates a marker for the given jQuery element and map.
+ *
+ * @date    22/10/19
+ * @since   5.8.6
+ *
+ * @param   jQuery $el The jQuery element.
+ * @param   object The map instance.
+ * @return  object The marker instance.
+ */
+function initMarker($marker, map) {
+  // Get position from marker.
+  var lat = $marker.data('lat');
+  var lng = $marker.data('lng');
+  var latLng = {
+    lat: parseFloat(lat),
+    lng: parseFloat(lng),
+  };
+
+  // Create marker instance.
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: map,
+  });
+
+  // Append to reference for later use.
+  map.markers.push(marker);
+
+  // If marker contains HTML, add it to an infoWindow.
+  if ($marker.html()) {
+    // Create info window.
+    var infowindow = new google.maps.InfoWindow({
+      content: $marker.html(),
+    });
+
+    // Show info window when marker is clicked.
+    google.maps.event.addListener(marker, 'click', function () {
+      infowindow.open(map, marker);
+    });
+  }
+}
+
+/**
+ * centerMap
+ *
+ * Centers the map showing all markers in view.
+ *
+ * @date    22/10/19
+ * @since   5.8.6
+ *
+ * @param   object The map instance.
+ * @return  void
+ */
+function centerMap(map) {
+  // Create map boundaries from all map markers.
+  var bounds = new google.maps.LatLngBounds();
+  map.markers.forEach(function (marker) {
+    bounds.extend({
+      lat: marker.position.lat(),
+      lng: marker.position.lng(),
+    });
+  });
+
+  // Case: Single marker.
+  if (map.markers.length == 1) {
+    map.setCenter(bounds.getCenter());
+
+    // Case: Multiple markers.
+  } else {
+    map.fitBounds(bounds);
+  }
+}
+
+// Render maps on page load.
+$(document).ready(function () {
+  $('.contact__map').each(function () {
+    initMap($(this));
+  });
 });

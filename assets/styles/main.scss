@@ -90,6 +90,11 @@ comment or delete styles below */
 @import 'templates/home';
 
 /* -----------------------------------------
+  TMPL: Home page
+----------------------------------------- */
+@import 'templates/activities';
+
+/* -----------------------------------------
   Page: Blog
 ----------------------------------------- */
 @import 'templates/blog';
@@ -123,6 +128,7 @@ comment or delete styles below */
 @import 'flexible/relocate';
 @import 'flexible/testimonials';
 @import 'flexible/faq';
+@import 'flexible/reasons';
 
 /* -----------------------------------------
   Divi custom blocks
