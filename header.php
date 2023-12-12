@@ -60,6 +60,63 @@
     <div class="grid-container menu-grid-container">
         <div class="grid-x">
             <div class="medium-4 small-12 cell">
+                <div class="header-modal-buttons">
+                    <button class="explore-button">
+                        <span>
+                            <?php _e( 'EXPLORE ABERDEEN' ); ?>
+                        </span>
+                    </button>
+                    <button class="move-button">
+                        <span>
+                            <?php _e( 'MOVE TO ABERDEEN' ); ?>
+                        </span>
+                    </button>
+                </div>
+                <div class="header-modals explore-links-modal">
+                    <?php if ( have_rows( 'explore_links', 'options' ) ) : ?>
+                        <div class="explore-links">
+                            <?php while ( have_rows( 'explore_links', 'options' ) ) : the_row();
+                                $link_image = get_sub_field( 'link_image' );
+                                $link       = get_sub_field( 'link' );
+                                ?>
+                                <div class="link-wrap">
+                                    <a href="<?php echo $link['url']; ?>">
+                                        <div class="image">
+                                            <?php echo wp_get_attachment_image( $link_image['id'], 'large' ); ?>
+                                        </div>
+                                        <div class="link-title">
+                                            <?php echo $link['title']; ?>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="header-modals move-links-modal">
+                    <?php if ( have_rows( 'move_links', 'options' ) ) : ?>
+                        <div class="move-links">
+                            <?php while ( have_rows( 'move_links', 'options' ) ) : the_row();
+                                $link_image = get_sub_field( 'link_image' );
+                                $link       = get_sub_field( 'link' );
+                                ?>
+                                <div class="link-wrap">
+                                    <a href="<?php echo $link['url']; ?>">
+                                        <div class="image">
+                                            <?php echo wp_get_attachment_image( $link_image['id'], 'large' ); ?>
+                                        </div>
+                                        <div class="link-title">
+                                            <?php echo $link['title']; ?>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="medium-4 small-12 cell">
                 <div class="logo text-center medium-text-left">
@@ -91,6 +148,6 @@
 </header>
 
 <div class="fixed-socials">
-    <?php get_template_part('parts/socials'); // Social profiles?>
+    <?php get_template_part( 'parts/socials' ); // Social profiles?>
 </div>
 <!-- END of header -->

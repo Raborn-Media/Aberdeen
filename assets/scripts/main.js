@@ -104,10 +104,36 @@ $(document).on('ready', function () {
   });
 
   /**
+   * Show Header modals
+   */
+  $('.header-modals').hide();
+
+  // Show Explore modal on Explore button click
+  $('.explore-button').click(function () {
+    $('.header-modals.move-links-modal').slideUp();
+    $('.header-modals.explore-links-modal').slideToggle();
+    event.stopPropagation(); // Prevent the event from bubbling up
+  });
+
+  // Show Move modal on Move button click
+  $('.move-button').click(function () {
+    $('.header-modals.explore-links-modal').slideUp();
+    $('.header-modals.move-links-modal').slideToggle();
+    event.stopPropagation(); // Prevent the event from bubbling up
+  });
+
+  // Hide modals when clicking outside of the modals
+  $(document).click(function (event) {
+    if (!$(event.target).closest('.header-modal-buttons').length) {
+      $('.header-modals').slideUp();
+    }
+  });
+
+  /**
    * Search
    */
   $('.search-button-show').on('click', function () {
-    $('.search-form').toggleClass('card-modal-visible');
+    $('.search-form').toggleClass('show');
   });
 
   /**
