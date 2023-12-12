@@ -1,0 +1,150 @@
+.retire-reasons-section {
+  padding-top: 80px;
+
+  .retire-reasons-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+
+    .card {
+      max-width: 48.5%;
+      color: $white;
+      border-radius: 9px 0;
+      position: relative;
+      transition: all 0.5s ease-out;
+      background-size: 100%;
+      background-position: center;
+      cursor: pointer;
+
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba($black, 0.5);
+        border-radius: 9px 0;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        background-image: url('../../images/Pattern.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        border-radius: 0 0 9px 0;
+        width: 100%;
+        height: 22px;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      &:hover {
+        background-size: 120%;
+        background-position: center;
+      }
+
+      .card-inner {
+        padding: 40px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .number {
+        font-size: 140px;
+        font-weight: 600;
+        line-height: 140%; /* 196px */
+        font-family: $sub-font;
+      }
+
+      h3 {
+        font-size: 31px;
+      }
+
+      .card-modal {
+        border-radius: 9px 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #143620;
+        z-index: 5;
+        display: flex;
+        flex-direction: row;
+        padding: 40px;
+        //display: none;
+        width: 100vw;
+        max-width: 1138px;
+        gap: 40px;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out;
+
+        .modal-image {
+          width: 100%;
+          max-width: 40%;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .modal-comtent {
+          width: 100%;
+          max-width: 60%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .content-inner {
+            margin-bottom: 30px;
+
+            h3 {
+              padding-bottom: 20px;
+              margin-bottom: 20px;
+              border-bottom: 2px solid $aquaforest;
+            }
+          }
+
+          .back {
+            color: $white;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 140%; /* 28px */
+            max-width: fit-content;
+            cursor: pointer;
+
+            &:before {
+              content: '\f060';
+              font-family: $fa;
+              margin-right: 8px;
+              vertical-align: middle;
+            }
+
+            &:hover {
+              color: $sun;
+            }
+          }
+        }
+      }
+
+      .card-modal-visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &:nth-child(even) {
+        .card-modal {
+          left: unset;
+          right: 0;
+        }
+      }
+    }
+  }
+}

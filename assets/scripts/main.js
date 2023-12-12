@@ -89,9 +89,27 @@ $(document).on('ready', function () {
     // prevArrow: '.slick-prev',
   });
 
-  $('.search-button-show').on('click', function () {
-    $('.search-form').toggleClass('show');
+  /**
+   * Show Retire modal
+   */
+  $('.retire-reasons-list .card').click(function () {
+    $('.card-modal').removeClass('card-modal-visible');
+    $(this).find('.card-modal').addClass('card-modal-visible');
   });
+
+  // Hide modal on back-btn click
+  $('.retire-reasons-list .card .card-modal .back').click(function (event) {
+    event.stopPropagation(); // Prevent the click event from propagating to the card
+    $(this).closest('.card-modal').removeClass('card-modal-visible');
+  });
+
+  /**
+   * Search
+   */
+  $('.search-button-show').on('click', function () {
+    $('.search-form').toggleClass('card-modal-visible');
+  });
+
   /**
    * Make elements equal height
    */

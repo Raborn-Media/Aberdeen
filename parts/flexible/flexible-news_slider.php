@@ -43,18 +43,20 @@ $news_list     = get_sub_field( 'news_list' );
                     <div class="post-slider">
                         <!-- the loop -->
                         <?php while ( $the_query->have_posts() ) : $the_query->the_post();
-                            $post_image = get_the_post_thumbnail();
+                            $post_image = get_the_post_thumbnail( '', 'large');
                             ?>
 
                             <div class="post-slider__slide">
-                                <div class="slide-inner">
-                                    <div class="slide-image">
-                                        <?php echo $post_image; ?>
+                                <a href="<?php the_permalink() ?>">
+                                    <div class="slide-inner">
+                                        <div class="slide-image">
+                                            <?php echo $post_image; ?>
+                                        </div>
+                                        <div class="slide-content">
+                                            <h4><?php the_title(); ?></h4>
+                                        </div>
                                     </div>
-                                    <div class="slide-content">
-                                        <h4><?php the_title(); ?></h4>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
 
                         <?php endwhile; ?>

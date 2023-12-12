@@ -25,6 +25,7 @@ $slick-arrow-size: 2rem;
     font-size: $slick-arrow-size;
   }
 }
+
 .slick-prev {
   left: 2rem;
 }
@@ -35,17 +36,35 @@ $slick-arrow-size: 2rem;
 
 /* Dots */
 .slick-dotted.slick-slider {
-  margin-bottom: 3rem;
+  margin-bottom: 45px;
 }
 
 .slick-dots {
-  bottom: -2rem;
+  bottom: -45px;
+  //transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  height: auto;
 
   li {
+    width: 100%;
+    max-width: fit-content;
+    height: auto;
+
     button {
+      width: 64px;
+      height: 5px;
+      background-color: #fae2bb;
+      padding: 0;
       &::before {
-        font-weight: 900;
+        display: none;
       }
+    }
+  }
+
+  .slick-active {
+    button {
+      background-color: $sun !important;
     }
   }
 }

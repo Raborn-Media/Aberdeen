@@ -135,6 +135,10 @@
   }
 }
 
+.hide-on-desktop {
+  display: none;
+}
+
 @include breakpoint(small down) {
   /* TOP BAR Mobile STYLING */
 
