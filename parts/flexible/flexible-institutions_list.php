@@ -1,11 +1,20 @@
 <?php
 $post_type_to_show = get_sub_field( 'post_type_to_show' );
+$list_map          = get_sub_field( 'list_map' );
 ?>
 
 <!-- BEGIN  institutions-list-section -->
 <section class="institutions-list-section flexible-section">
     <div class="grid-container">
         <div class="grid-x">
+            <?php if ( $list_map ) : ?>
+                <div class="cell">
+                    <div class="list-map">
+                        <?php echo $list_map ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
             <div class="cell">
                 <?php
                 $institutions = new WP_Query( array(

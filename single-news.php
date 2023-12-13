@@ -1,6 +1,6 @@
 <?php
 /**
- * Single
+ * Single News
  *
  * Loop container for single post content
  */

@@ -2,6 +2,11 @@
   padding-top: 32px;
   background: linear-gradient(180deg, $white 0%, $aqualight 131.73%);
 
+  .list-map {
+    max-width: 775px;
+    margin: 0 auto 32px;
+  }
+
   .institutions-list {
     max-width: 775px;
     margin-left: auto;

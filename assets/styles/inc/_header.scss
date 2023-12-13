@@ -431,6 +431,7 @@
           border-radius: 9px 0;
           width: 100%;
           aspect-ratio: 320/246;
+          transition: all 0.5s ease-out;
         }
       }
 
@@ -439,6 +440,18 @@
         font-weight: 600;
         line-height: 140%; /* 25.2px */
         text-transform: uppercase;
+        color: $midnight-blue;
+      }
+
+      &:hover {
+        .image {
+          img {
+            box-shadow: 8px 8px 0px 0px rgba(113, 158, 115, 0.6);
+          }
+        }
+        .link-title {
+          color: $midnight-blue;
+        }
       }
     }
   }
