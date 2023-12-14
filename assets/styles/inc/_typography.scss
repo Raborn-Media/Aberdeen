@@ -361,6 +361,7 @@ iframe {
   justify-content: space-between;
   align-items: center;
 }
+
 .pagination {
   display: flex;
   flex-direction: row;
@@ -369,10 +370,13 @@ iframe {
   //column-gap: 24px;
   margin-top: 32px;
 
+  //.pagination,
   .page-numbers {
     font-size: 16px;
     line-height: 140%; /* 22.4px */
     margin-right: 24px;
+    background-color: transparent;
+    color: $midnight-blue;
 
     &.next,
     &.prev {
@@ -381,12 +385,43 @@ iframe {
 
     &.current {
       font-weight: 600;
+      color: $midnight-blue;
+    }
+
+    &:hover {
+      background-color: transparent;
+      font-weight: 600;
     }
   }
 }
 
+#pagination-info-search,
 #pagination-info {
   font-size: 16px;
   font-weight: 600;
   line-height: 140%; /* 22.4px */
+}
+
+.custom-breadcrumbs {
+  margin: 37px 0 40px;
+
+  a,
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  .home-url {
+    font-size: 0;
+
+    &:before {
+      content: '\f015';
+      font-size: 16px;
+      font-family: $fa;
+    }
+  }
 }

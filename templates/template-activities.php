@@ -81,6 +81,13 @@ get_header();
             </div>
             <div class="grid-x">
                 <div class="cell">
+                    <div class="custom-breadcrumbs">
+                        <a href="<?php echo get_home_url(); ?>" class="home-url">Home</a>
+                        <span>&nbsp;&gt;&nbsp;</span>
+                        <span>EXPLORE</span>
+                        <span>&nbsp;&gt;&nbsp;</span>
+                        <span><?php the_title();?></span>
+                    </div>
                     <article class="text-center page-content">
                         <?php the_content(); ?>
                     </article>

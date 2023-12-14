@@ -61,21 +61,25 @@
                 <?php endif; ?>
                 <div class="preview__excerpt">
                     <?php // Show more for posts
-                    $content = get_extended(get_the_content(''));
+                    $content = get_extended( get_the_content( '' ) );
                     echo $content['extended'] ? $content['main'] : wp_trim_words( $content['main'], 35 );
                     ?>
                 </div>
             </div>
             <div class="preview__buttons">
                 <a href="<?php the_permalink(); ?>" class="button--arrow button">
-                    <?php _e('Learn more'); ?>
+                    <?php _e( 'Learn more' ); ?>
                 </a>
-                <a href="" class="button--web button">
-                    <?php _e('VISIT WEBSITE'); ?>
-                </a>
-                <a href="" class="button--pin button">
-                    <?php _e('GET DIRECTIONS'); ?>
-                </a>
+                <?php if ( ! is_search() && $website = get_field( 'visit_website' ) ) : ?>
+                    <a href="<?php echo $website; ?>" target="_blank" class="website button button--web">
+                        <?php _e( 'VISIT WEBSITE' ); ?>
+                    </a>
+                <?php endif; ?>
+                <?php if ( ! is_search() && $address = get_field( 'activity_address' ) ) : ?>
+                    <a href="" class="button--pin button">
+                        <?php _e( 'GET DIRECTIONS' ); ?>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

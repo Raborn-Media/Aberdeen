@@ -41,3 +41,14 @@
   background-size: 100%;
   background-position-y: top;
 }
+
+.error404 {
+  .hero-section {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    @media (max-width: 1300px) {
+      background-size: cover;
+    }
+  }
+}

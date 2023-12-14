@@ -464,92 +464,93 @@ filters.on('change', function () {
     },
   });
 });
+if (!$('.search-results-section').length) {
+  $(document).on('click', '.pagination a', function (e) {
+    e.preventDefault();
+    let page = $(this).text(); // Extract page number from link
+    if ($(this).hasClass('next')) {
+      page = parseInt($('.pagination .current').text()) + 1;
+    }
+    if ($(this).hasClass('prev')) {
+      page = parseInt($('.pagination .current').text()) - 1;
+    }
+    let postType = $('.institutions-list').data('post-type');
 
-$(document).on('click', '.pagination a', function (e) {
-  e.preventDefault();
-  let page = $(this).text(); // Extract page number from link
-  if ($(this).hasClass('next')) {
-    page = parseInt($('.pagination .current').text()) + 1;
-  }
-  if ($(this).hasClass('prev')) {
-    page = parseInt($('.pagination .current').text()) - 1;
-  }
-  let postType = $('.institutions-list').data('post-type');
+    $.ajax({
+      type: 'POST',
+      url: ajax_object.ajax_url, // get from wp_localize_script()
+      data: {
+        action: 'ajax_institutions_pagination', // action for wp_ajax_ & wp_ajax_nopriv_
+        postType: postType,
+        paged: page,
+      },
+      beforeSend() {},
+      success: function (data) {
+        $('.institutions-list-wrap').html(data.data); // insert new posts
 
-  $.ajax({
-    type: 'POST',
-    url: ajax_object.ajax_url, // get from wp_localize_script()
-    data: {
-      action: 'ajax_institutions_pagination', // action for wp_ajax_ & wp_ajax_nopriv_
-      postType: postType,
-      paged: page,
-    },
-    beforeSend() {},
-    success: function (data) {
-      $('.institutions-list-wrap').html(data.data); // insert new posts
-
-      // Update pagination info if pagination is present
-      const pagination = document.querySelector('.pagination');
-      if (pagination) {
-        const currentPage = parseInt(
-          pagination.getAttribute('data-current-page'),
-          10
-        );
-        const totalPages = parseInt(
-          pagination.getAttribute('data-total-pages'),
-          10
-        );
-        const paginationInfo = document.getElementById('pagination-info');
-        paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
-      }
-    },
+        // Update pagination info if pagination is present
+        const pagination = document.querySelector('.pagination');
+        if (pagination) {
+          const currentPage = parseInt(
+            pagination.getAttribute('data-current-page'),
+            10
+          );
+          const totalPages = parseInt(
+            pagination.getAttribute('data-total-pages'),
+            10
+          );
+          const paginationInfo = document.getElementById('pagination-info');
+          paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+        }
+      },
+    });
   });
-});
-$(document).on('click', '.pagination a', function (e) {
-  e.preventDefault();
-  let page = $(this).text(); // Extract page number from link
-  if ($(this).hasClass('next')) {
-    page = parseInt($('.pagination .current').text()) + 1;
-  }
-  if ($(this).hasClass('prev')) {
-    page = parseInt($('.pagination .current').text()) - 1;
-  }
+  $(document).on('click', '.pagination a', function (e) {
+    e.preventDefault();
+    let page = $(this).text(); // Extract page number from link
+    if ($(this).hasClass('next')) {
+      page = parseInt($('.pagination .current').text()) + 1;
+    }
+    if ($(this).hasClass('prev')) {
+      page = parseInt($('.pagination .current').text()) - 1;
+    }
 
-  let activity = $('#activity_types option:selected').attr('title');
-  let accessibility = $('#accessibility option:selected').attr('title');
-  let duration = $('#duration option:selected').attr('title');
+    let activity = $('#activity_types option:selected').attr('title');
+    let accessibility = $('#accessibility option:selected').attr('title');
+    let duration = $('#duration option:selected').attr('title');
 
-  $.ajax({
-    type: 'POST',
-    url: ajax_object.ajax_url, // get from wp_localize_script()
-    data: {
-      action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
-      activity_types: activity,
-      accessibility: accessibility,
-      duration: duration,
-      paged: page,
-    },
-    beforeSend() {},
-    success: function (data) {
-      $('.activities-wrap').html(data.data); // insert new posts
+    $.ajax({
+      type: 'POST',
+      url: ajax_object.ajax_url, // get from wp_localize_script()
+      data: {
+        action: 'filter_posts', // action for wp_ajax_ & wp_ajax_nopriv_
+        activity_types: activity,
+        accessibility: accessibility,
+        duration: duration,
+        paged: page,
+      },
+      beforeSend() {},
+      success: function (data) {
+        $('.activities-wrap').html(data.data); // insert new posts
 
-      // Update pagination info if pagination is present
-      const pagination = document.querySelector('.pagination');
-      if (pagination) {
-        const currentPage = parseInt(
-          pagination.getAttribute('data-current-page'),
-          10
-        );
-        const totalPages = parseInt(
-          pagination.getAttribute('data-total-pages'),
-          10
-        );
-        const paginationInfo = document.getElementById('pagination-info');
-        paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
-      }
-    },
+        // Update pagination info if pagination is present
+        const pagination = document.querySelector('.pagination');
+        if (pagination) {
+          const currentPage = parseInt(
+            pagination.getAttribute('data-current-page'),
+            10
+          );
+          const totalPages = parseInt(
+            pagination.getAttribute('data-total-pages'),
+            10
+          );
+          const paginationInfo = document.getElementById('pagination-info');
+          paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
+        }
+      },
+    });
   });
-});
+}
 
 const pagination = document.querySelector('.pagination');
 

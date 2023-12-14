@@ -4,6 +4,8 @@
   top: 0;
   z-index: 99;
   background-color: $white;
+  box-shadow: 0px 8px 8px -4px rgba(65, 75, 90, 0.03),
+    0px 20px 24px -4px rgba(65, 75, 90, 0.03);
 }
 .admin-bar .header {
   top: 32px;
