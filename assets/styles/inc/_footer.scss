@@ -87,9 +87,10 @@
 .footer__copy {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: $light-gray;
   font-size: 12px;
   text-align: center;
+  color: $white;
+  margin-top: 32px;
 }
 
 .cta-section {
@@ -242,5 +243,61 @@
     width: 100%;
     object-position: bottom;
     //object-fit: cover;
+  }
+}
+
+.footer-links-wrap {
+  color: $white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding-left: 100px;
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+
+    .links-title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 140%; /* 19.6px */
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+    }
+
+    a {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 140%; /* 22.4px */
+      margin-bottom: 10px;
+    }
+  }
+
+  .footer-contact__links {
+    color: $white;
+    //margin: auto;
+    //max-width: 50%;
+
+    .links-title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 140%; /* 19.6px */
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+    }
+
+    .footer-contact-info {
+      margin-bottom: 0;
+
+      address,
+      a {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 140%; /* 22.4px */
+        margin-bottom: 10px;
+      }
+    }
   }
 }

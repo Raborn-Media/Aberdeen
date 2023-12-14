@@ -79,17 +79,18 @@
                                 $link_image = get_sub_field( 'link_image' );
                                 $link       = get_sub_field( 'link' );
                                 ?>
-                                <div class="link-wrap">
-                                    <a href="<?php echo $link['url']; ?>">
-                                        <div class="image">
-                                            <?php echo wp_get_attachment_image( $link_image['id'], 'large' ); ?>
-                                        </div>
-                                        <div class="link-title">
-                                            <?php echo $link['title']; ?>
-                                        </div>
-                                    </a>
-                                </div>
-
+                                <?php if ( $link ) : ?>
+                                    <div class="link-wrap">
+                                        <a href="<?php echo $link['url']; ?>">
+                                            <div class="image">
+                                                <?php echo wp_get_attachment_image( $link_image['id'], 'large' ); ?>
+                                            </div>
+                                            <div class="link-title">
+                                                <?php echo $link['title']; ?>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
                             <?php endwhile; ?>
                         </div>
                     <?php endif; ?>
@@ -102,16 +103,18 @@
                                 $link_image = get_sub_field( 'link_image' );
                                 $link       = get_sub_field( 'link' );
                                 ?>
-                                <div class="link-wrap">
-                                    <a href="<?php echo $link['url']; ?>">
-                                        <div class="image">
-                                            <?php echo wp_get_attachment_image( $link_image['id'], 'large' ); ?>
-                                        </div>
-                                        <div class="link-title">
-                                            <?php echo $link['title']; ?>
-                                        </div>
-                                    </a>
-                                </div>
+                                <?php if ( $link ) : ?>
+                                    <div class="link-wrap">
+                                        <a href="<?php echo $link['url']; ?>">
+                                            <div class="image">
+                                                <?php echo wp_get_attachment_image( $link_image['id'], 'large' ); ?>
+                                            </div>
+                                            <div class="link-title">
+                                                <?php echo $link['title']; ?>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
 
                             <?php endwhile; ?>
                         </div>

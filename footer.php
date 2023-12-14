@@ -72,16 +72,85 @@
                     </div>
                 </div>
             </div>
-            <div class="cell large-6">
-                <?php
-                if ( has_nav_menu( 'footer-menu' ) ) {
-                    wp_nav_menu( array(
-                        'theme_location' => 'footer-menu',
-                        'menu_class'     => 'footer-menu',
-                        'depth'          => 1
-                    ) );
-                }
-                ?>
+            <div class="cell large-9 links-col">
+                <div class="footer-links-wrap">
+                    <div class="footer-contact__links matchHeight">
+                        <h6 class="links-title">
+                            <?php _e( 'Contact us' ); ?>
+                        </h6>
+                        <?php if ( $address = get_field( 'address', 'option' ) ) : ?>
+                            <div class="footer-contact-info footer-address-info">
+                                <address class="contact-link contact-link--address">
+                                    <?php echo $address; ?>
+                                </address>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ( $phone = get_field( 'phone', 'options' ) ) : ?>
+                            <div class="footer-contact-info footer-phone-info">
+                                <p class="contact-link contact-link--phone">
+                                    <a href="tel:<?php echo sanitize_number( $phone ); ?>"><?php echo $phone; ?></a>
+                                </p>
+                            </div>
+
+                        <?php endif; ?>
+
+                        <?php if ( $email = get_field( 'email', 'options' ) ) : ?>
+                            <div class="footer-contact-info footer-email-info">
+                                <p class="contact-link contact-link--email">
+                                    <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                                </p>
+                            </div>
+
+                        <?php endif; ?>
+                    </div>
+
+                    <?php if ( have_rows( 'explore_footer_links', 'options' ) ) : ?>
+                        <div class="explore-footer-links footer-links matchHeight">
+                            <h6 class="links-title">
+                                <?php _e( 'Explore' ); ?>
+                            </h6>
+                            <?php while ( have_rows( 'explore_footer_links', 'options' ) ) : the_row();
+                                $link = get_sub_field( 'link' );
+                                ?>
+                                <a href="<?php echo $link['url']; ?>">
+                                    <?php echo $link['title']; ?>
+                                </a>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ( have_rows( 'move_to_links', 'options' ) ) : ?>
+                        <div class="move-to-footer-links footer-links matchHeight">
+                            <h6 class="links-title">
+                                <?php _e( 'move to' ); ?>
+                            </h6>
+                            <?php while ( have_rows( 'move_to_links', 'options' ) ) : the_row();
+                                $link = get_sub_field( 'link' );
+                                ?>
+                                <a href="<?php echo $link['url']; ?>">
+                                    <?php echo $link['title']; ?>
+                                </a>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ( have_rows( 'quick_links', 'options' ) ) : ?>
+                        <div class="quick-footer-links footer-links matchHeight">
+                            <h6 class="links-title">
+                                <?php _e( 'quick links' ); ?>
+                            </h6>
+                            <?php while ( have_rows( 'quick_links', 'options' ) ) : the_row();
+                                $link = get_sub_field( 'link' );
+                                ?>
+                                <a href="<?php echo $link['url']; ?>">
+                                    <?php echo $link['title']; ?>
+                                </a>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
             </div>
         </div>
     </div>
