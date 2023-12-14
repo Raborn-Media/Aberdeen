@@ -347,3 +347,12 @@ function ajax_institutions_pagination() {
 
 add_action( 'wp_ajax_ajax_institutions_pagination', 'ajax_institutions_pagination' );
 add_action( 'wp_ajax_nopriv_ajax_institutions_pagination', 'ajax_institutions_pagination' );
+
+add_action('admin_head', 'my_custom_fonts');
+function my_custom_fonts() {
+    echo '<style>
+#event_tribe_organizer, #event_tribe_venue, #event_cost {
+display: none;
+}
+</style>';
+}

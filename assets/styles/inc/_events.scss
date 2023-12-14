@@ -51,6 +51,7 @@
 kbd {
   display: none;
 }
+
 .tribe-common--breakpoint-medium.tribe-common .tribe-common-h4--min-medium {
   margin-bottom: 0 !important;
   line-height: 1 !important;
@@ -137,14 +138,38 @@ kbd {
       text-transform: uppercase;
     }
   }
+
   .button--pin {
     &:after {
       content: url('../../images/pin.svg');
     }
   }
+
   .button--web {
     &:after {
       content: url('../../images/globe.svg');
+    }
+  }
+}
+
+/* Single Event page */
+.tribe-events-pg-template {
+  max-width: 100% !important;
+  width: 100%;
+  padding: 0 !important;
+  padding-top: 64px !important;
+
+  .flexible-section {
+    background: linear-gradient(180deg, $white 0%, #e3f3fb 100%);
+  }
+  .event-container {
+    max-width: 792px;
+  }
+
+  .tribe-events-event-image {
+    margin: 16px 0;
+    img {
+      border-radius: 24px 0;
     }
   }
 }
