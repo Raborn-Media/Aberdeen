@@ -27,22 +27,27 @@
       img {
         border-radius: 24px 0;
       }
+
       .main-image {
         width: 100%;
       }
     }
+
     .section-image.with-bottom-image {
       padding-bottom: 75px;
+
       .main-image {
         max-width: 70%;
         height: 543px;
         object-fit: cover;
       }
+
       .bottom-image {
         position: absolute;
         bottom: 0;
         right: 26px;
       }
+
       .top-image {
         position: absolute;
         top: 0;
@@ -50,12 +55,34 @@
         max-height: 287px;
         aspect-ratio: 147/287;
       }
+
+      @include breakpoint(medium down) {
+        max-width: 60%;
+        margin: 0 auto;
+      }
+      @include breakpoint(small down) {
+        max-width: 100%;
+        padding-right: 0;
+        .main-image {
+          max-width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+        .bottom-image {
+          right: 0;
+        }
+        .top-image {
+          right: 0;
+        }
+      }
     }
 
     .section-text {
       margin-left: 30px;
       position: relative;
       z-index: 2;
+
       &:before {
         content: '';
         position: absolute;
@@ -94,31 +121,56 @@
       img {
         border-radius: 24px 0;
       }
+
       .main-image {
         width: 100%;
       }
     }
+
     .section-image.with-bottom-image {
       .main-image {
         max-width: 70%;
       }
+
       .bottom-image {
         position: absolute;
         bottom: 0;
         right: unset;
         left: 26px;
       }
+
       .top-image {
         position: absolute;
         top: 31px;
         right: unset;
         left: 26px;
       }
+      @include breakpoint(medium down) {
+        max-width: 60%;
+        margin: 0 auto;
+      }
+      @include breakpoint(small down) {
+        max-width: 100%;
+        padding-right: 0;
+        .main-image {
+          max-width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+        .bottom-image {
+          left: 0;
+        }
+        .top-image {
+          left: 0;
+        }
+      }
     }
 
     .section-text {
       margin-left: 0;
       margin-right: 30px;
+
       &:before {
         left: -239px;
         right: unset;

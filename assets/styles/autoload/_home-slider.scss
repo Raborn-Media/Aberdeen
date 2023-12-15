@@ -32,18 +32,27 @@
         opacity: 0.75;
       }
     }
+    @include breakpoint(small down) {
+      display: none !important;
+    }
   }
 
   .slick-prev {
     left: 6rem;
     //&::before {
     //}
+    @include breakpoint(medium down) {
+      left: 4rem;
+    }
   }
 
   .slick-next {
     right: 6rem;
     //&::before {
     //}
+    @include breakpoint(medium down) {
+      right: 4rem;
+    }
   }
 
   .slick-dots {
@@ -97,9 +106,9 @@
     height: 400px;
   }
 
-  @include breakpoint(small down) {
-    height: 300px;
-  }
+  //@include breakpoint(small down) {
+  //  height: 300px;
+  //}
 
   &__inner {
     @extend %bgcover;
@@ -146,6 +155,7 @@
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
+      width: 100%;
     }
   }
 }

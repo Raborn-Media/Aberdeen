@@ -38,13 +38,19 @@
             <div class="header-contact-info">
                 <?php if ( $phone = get_field( 'phone', 'options' ) ) : ?>
                     <div class="phone-number">
-                        <span><?php _e( 'Phone: ' ); ?></span>
-                        <a href="tel:<?php echo sanitize_number( $phone ); ?>"><?php echo $phone; ?></a>
+                        <a href="tel:<?php echo sanitize_number( $phone ); ?>">
+                            <span><?php _e( 'Phone: ' ); ?></span>
+                            <?php echo $phone; ?>
+                        </a>
                     </div>
                 <?php endif; ?>
 
                 <?php if ( $hours = get_field( 'hours', 'options' ) ) : ?>
-                    <p class="hours"><?php _e( 'Hours: ' ); ?><?php echo $hours; ?></p>
+                    <p class="hours">
+<!--                        --><?php //_e( 'Hours: ' ); ?>
+                        <span><?php _e( 'Hours: ' ); ?></span>
+                        <?php echo $hours; ?>
+                    </p>
                 <?php endif; ?>
                 <div class="search-form-container">
                     <button class="search-button-show">
@@ -59,7 +65,7 @@
     </div>
     <div class="grid-container menu-grid-container">
         <div class="grid-x">
-            <div class="medium-4 small-12 cell">
+            <div class="medium-4 small-12 cell show-for-large">
                 <div class="header-modal-buttons">
                     <button class="explore-button">
                         <span>
@@ -121,7 +127,7 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="medium-4 small-12 cell">
+            <div class="medium-4 small-6 cell">
                 <div class="logo text-center medium-text-left">
                     <h1>
                         <?php show_custom_logo(); ?><span
@@ -129,9 +135,9 @@
                     </h1>
                 </div>
             </div>
-            <div class="medium-4 small-12 cell">
+            <div class="large-4 medium-8 small-6 cell">
                 <?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-                    <div class="title-bar hide-for-medium" data-responsive-toggle="main-menu" data-hide-for="medium">
+                    <div class="title-bar hide-for-large" data-responsive-toggle="main-menu" data-hide-for="large">
                         <button class="menu-icon" type="button" data-toggle aria-label="Menu" aria-controls="main-menu">
                             <span></span></button>
                         <div class="title-bar-title">Menu</div>
@@ -140,7 +146,7 @@
                         <?php wp_nav_menu( array(
                             'theme_location' => 'header-menu',
                             'menu_class'     => 'menu header-menu',
-                            'items_wrap'     => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown" data-submenu-toggle="true" data-multi-open="false" data-close-on-click-inside="false">%3$s</ul>',
+                            'items_wrap'     => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion large-dropdown" data-submenu-toggle="true" data-multi-open="false" data-close-on-click-inside="false">%3$s</ul>',
                             'walker'         => new theme\FoundationNavigation()
                         ) ); ?>
                     </nav>

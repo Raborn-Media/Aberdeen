@@ -11,6 +11,12 @@
     //max-height: 120px;
     width: 100%;
   }
+  @include breakpoint(medium down) {
+    margin-bottom: 32px;
+    img {
+      max-width: fit-content;
+    }
+  }
 }
 
 .footer__sp {
@@ -175,6 +181,37 @@
       .gform_footer {
         margin: 0;
       }
+
+      @include breakpoint(medium down) {
+        margin-bottom: 32px;
+        flex-direction: column;
+
+        h4 {
+          margin-bottom: 16px;
+        }
+      }
+      @include breakpoint(small down) {
+        .gform_fields {
+          grid-row-gap: 16px;
+
+          .gfield {
+            grid-column: 1/-1 !important;
+
+            input {
+              height: 42px;
+              width: 100%;
+              border-radius: 4px;
+            }
+          }
+
+          #field_submit {
+            .gform-button {
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
+        }
+      }
     }
 
     .map-col {
@@ -226,7 +263,23 @@
           width: 100%;
         }
       }
+
+      @include breakpoint(small down) {
+        flex-direction: column;
+        text-align: center;
+        .cta-map-info {
+          margin-bottom: 16px;
+          width: 100%;
+        }
+        .cta-map-image {
+          width: 100%;
+        }
+      }
     }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0 20px;
   }
 }
 
@@ -241,8 +294,14 @@
   img {
     height: 301px;
     width: 100%;
-    object-position: bottom;
+    object-position: bottom center;
     //object-fit: cover;
+  }
+  @media (max-width: 1600px) {
+    img {
+      object-fit: cover;
+      object-position: bottom left;
+    }
   }
 }
 
@@ -297,7 +356,25 @@
         font-weight: 600;
         line-height: 140%; /* 22.4px */
         margin-bottom: 10px;
+        display: block;
       }
+
+      address {
+        line-height: 160%;
+        //margin-bottom: 0;
+      }
+    }
+  }
+  @include breakpoint(medium down) {
+    padding: 0 20px;
+  }
+  @include breakpoint(small down) {
+    flex-direction: column;
+    gap: 32px;
+    .footer-contact__links,
+    .footer-links {
+      width: 100%;
+      text-align: center;
     }
   }
 }

@@ -234,7 +234,7 @@ add_shortcode( 'slider', function () {
                     <div class="home-slide__inner" <?php bg( get_attached_img_url( get_the_ID(), 'full_hd' ) ); ?>>
                         <?php $bg_video_url = get_post_meta( get_the_ID(), 'slide_video_bg', true ); ?>
                         <?php if ( get_post_format() == 'video' && $bg_video_url ) : ?>
-                            <div class="videoHolder show-for-large"
+                            <div class="videoHolder"
                                  data-ratio="<?php echo get_post_meta( get_the_ID(), 'video_aspect_ratio', true ) ?: '16:9'; ?>">
                                 <?php
                                 $allowed_video_format = [

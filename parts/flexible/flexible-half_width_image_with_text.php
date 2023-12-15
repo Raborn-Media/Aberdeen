@@ -15,13 +15,13 @@ $top_image         = get_sub_field( 'top_image' );
         <div class="grid-x section-row <?php echo $image_position ? 'section-row__reverce' : '' ?>">
             <div class="cell large-6">
                 <div class="section-image <?php echo $section_bottom_image ? 'with-bottom-image' : ''; ?>">
-                    <?php echo wp_get_attachment_image( $section_image['id'], 'large', false, ['class' => 'main-image'] ); ?>
+                    <?php echo wp_get_attachment_image( $section_image['id'], 'full_hd', false, ['class' => 'main-image'] ); ?>
                     <?php if ( $section_bottom_image == true ) :
-                        echo wp_get_attachment_image( $bottom_image['id'], 'large', false, ['class' => 'bottom-image'] );
+                        echo wp_get_attachment_image( $bottom_image['id'], 'full_hd', false, ['class' => 'bottom-image'] );
                     endif; ?>
 
                     <?php if ( $section_top_image == true ) :
-                        echo wp_get_attachment_image( $top_image['id'], 'large', false, ['class' => 'top-image'] );
+                        echo wp_get_attachment_image( $top_image['id'], 'full_hd', false, ['class' => 'top-image'] );
                     endif; ?>
                 </div>
             </div>

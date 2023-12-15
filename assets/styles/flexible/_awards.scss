@@ -13,6 +13,9 @@
     width: 395px;
     background-image: url('../../images/laurel.svg');
     background-size: 100% 100%;
+    @include breakpoint(small down) {
+      opacity: 0;
+    }
   }
 
   &:after {
@@ -43,6 +46,7 @@
     justify-content: center;
     flex-wrap: wrap;
     column-gap: 48px;
+    row-gap: 32px;
     margin-bottom: 40px;
 
     .award {

@@ -63,14 +63,38 @@
         font-weight: 600;
       }
 
-      .phone-number {
+      .phone-number a {
+        //&:before {
+        //  content: url('../../images/phone.svg');
+        //  width: 20px;
+        //  height: 20px;
+        //  margin-right: 8px;
+        //  vertical-align: middle;
+        //  display: inline-block;
+        //}
         &:before {
-          content: url('../../images/phone.svg');
-          width: 20px;
-          height: 20px;
+          content: '\f095';
+          color: transparent;
+          font-size: 15px;
+          font-family: $fa;
+          -webkit-text-stroke: 1px $white;
           margin-right: 8px;
-          vertical-align: middle;
-          display: inline-block;
+          width: auto;
+          height: auto;
+        }
+
+        &:hover {
+          &:before {
+            -webkit-text-stroke: 1px $sun;
+          }
+        }
+
+        @include breakpoint(small down) {
+          font-size: 0;
+          &:before {
+            margin-right: 0;
+            font-size: 12px;
+          }
         }
       }
       .hours {
@@ -81,6 +105,13 @@
           margin-right: 8px;
           vertical-align: middle;
           display: inline-block;
+        }
+        @include breakpoint(small down) {
+          font-size: 12px;
+          line-height: 20px;
+          span {
+            font-size: 0;
+          }
         }
       }
 
@@ -112,6 +143,9 @@
           display: block;
         }
       }
+      @include breakpoint(small down) {
+        column-gap: 12px;
+      }
     }
   }
 }
@@ -141,12 +175,14 @@
   display: none;
 }
 
-@include breakpoint(small down) {
+@include breakpoint(medium down) {
   /* TOP BAR Mobile STYLING */
-
+  .hide-on-desktop {
+    display: block;
+  }
   .menu-grid-container {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 24px;
+    padding-right: 24px;
 
     .grid-margin-x {
       margin-left: 0;
@@ -160,21 +196,38 @@
     }
   }
 
-  //.title-bar {
-  //  line-height: 45px;
-  //
-  //  .menu-icon {
-  //    padding: 0;
-  //    border: none;
-  //    background-color: transparent;
-  //
-  //    //@include menu-icon($white, $white, 30px, 24px, 3px);
-  //  }
-  //}
+  .title-bar {
+    line-height: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+
+    .menu-icon {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+
+      @include menu-icon($midnight-blue, $midnight-blue, 30px, 24px, 3px);
+      &:after {
+        display: none;
+      }
+    }
+
+    .title-bar-title {
+      display: none;
+    }
+  }
 
   .top-bar {
     display: none;
-    background: $primary-color; /* menu list background color */
+    background: $midnight-blue; /* menu list background color */
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 24px 0;
   }
 
   .header-menu {
@@ -182,17 +235,19 @@
 
     li {
       > a {
-        background: $primary-color; /* menu item background color */
         color: $white; /* menu item text color */
         line-height: 45px;
+        font-weight: 500;
+        text-transform: uppercase;
+        position: relative;
 
         &:focus {
           &,
           & + .submenu-toggle {
-            background: darken(
-              $primary-color,
-              5
-            ); /* menu item background color on hover */
+            //background: darken(
+            //  $primary-color,
+            //  5
+            //); /* menu item background color on hover */
           }
         }
       }
@@ -202,26 +257,29 @@
       &.current_page_parent {
         > a,
         .submenu-toggle {
-          background: lighten(
-            $primary-color,
-            5
-          ); /* current/parent menu item background color */
+          //background: lighten(
+          //  $primary-color,
+          //  5
+          //); /* current/parent menu item background color */
         }
       }
 
       &[aria-expanded='true'] {
         > a,
         .submenu-toggle {
-          background: darken(
-            $primary-color,
-            3
-          ); /* menu item background color on open dropdown */
+          //background: darken(
+          //  $primary-color,
+          //  3
+          //); /* menu item background color on open dropdown */
         }
       }
     }
 
     .submenu-toggle {
       padding: 0;
+      &:after {
+        border-color: $white transparent transparent;
+      }
     }
 
     .submenu {
@@ -238,7 +296,7 @@
   }
 }
 
-@include breakpoint(medium) {
+@include breakpoint(large) {
   /* TOP BAR STYLING */
   .top-bar {
     height: 100%;

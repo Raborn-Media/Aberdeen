@@ -127,5 +127,9 @@
         color: $white;
       }
     }
+
+    @include breakpoint(medium down) {
+      padding: 0 20px;
+    }
   }
 }

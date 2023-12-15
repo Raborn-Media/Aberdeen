@@ -71,6 +71,11 @@
       //  }
       //}
     }
+    @media (max-width: 800px) {
+      .event {
+        width: 100%;
+      }
+    }
   }
 }
 

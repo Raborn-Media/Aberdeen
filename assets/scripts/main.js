@@ -85,8 +85,29 @@ $(document).on('ready', function () {
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // nextArrow: '.slick-next',
-    // prevArrow: '.slick-prev',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ],
   });
 
   /**
@@ -277,6 +298,14 @@ $(document).on('ready', function () {
  */
 $(window).on('load', function () {
   // jQuery code goes here
+  $('.menu-icon').on('click', function () {
+    var headerHeight = $('.header').outerHeight();
+    $('.top-bar').css('top', headerHeight);
+    if ($('body').hasClass('admin-bar')) {
+      $('.top-bar').css('top', headerHeight + 46);
+    }
+    // $('body').toggleClass('body-fixed');
+  });
 
   let $preloader = $('.preloader');
   if ($preloader.length) {

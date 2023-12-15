@@ -10,23 +10,25 @@ $featured_posts     = get_sub_field( 'events_list' );
     <div class="grid-container">
         <div class="grid-x">
             <div class="cell text-center">
-                <?php if ( $section_icon ) : ?>
-                    <div class="section-icon">
-                        <div class="section-icon__wrap">
-                            <?php echo display_svg( $section_icon, 'icon' ); ?>
+                <div class="section-heading">
+                    <?php if ( $section_icon ) : ?>
+                        <div class="section-icon">
+                            <div class="section-icon__wrap">
+                                <?php echo display_svg( $section_icon, 'icon' ); ?>
+                            </div>
                         </div>
-                    </div>
-                <?php endif; ?>
-                <?php if ( $section_title ) : ?>
-                    <h3 class="section-title">
-                        <?php echo $section_title; ?>
-                    </h3>
-                <?php endif; ?>
-                <?php if ( $section_text ) : ?>
-                    <p class="section-text">
-                        <?php echo $section_text; ?>
-                    </p>
-                <?php endif; ?>
+                    <?php endif; ?>
+                    <?php if ( $section_title ) : ?>
+                        <h3 class="section-title">
+                            <?php echo $section_title; ?>
+                        </h3>
+                    <?php endif; ?>
+                    <?php if ( $section_text ) : ?>
+                        <p class="section-text">
+                            <?php echo $section_text; ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <?php

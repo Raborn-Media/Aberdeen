@@ -7,7 +7,7 @@
 <!-- BEGIN of footer -->
 <?php if ( $cta_bg = get_field( 'cta_bg', 'options' ) ) : ?>
     <div class="cta-bg">
-        <?php echo wp_get_attachment_image( $cta_bg['id'], 'large' ); ?>
+        <?php echo wp_get_attachment_image( $cta_bg['id'], 'full_hd' ); ?>
     </div>
 <?php endif; ?>
 <div class="cta-section">
