@@ -116,6 +116,8 @@ $(document).on('ready', function () {
   $('.retire-reasons-list .card').click(function () {
     $('.card-modal').removeClass('card-modal-visible');
     $(this).find('.card-modal').addClass('card-modal-visible');
+    // $('.card-modal').slideUp();
+    // $(this).find('.card-modal').slideToggle();
   });
 
   // Hide modal on back-btn click
@@ -217,29 +219,6 @@ $(document).on('ready', function () {
       }
     },
   });
-
-  // ScrollOut({
-  //   offset: function () {
-  //     return window.innerHeight - 200;
-  //   },
-  //   once: false,
-  //   onShown: function (element) {
-  //     $(element)
-  //       .find('.ease-order')
-  //       .each(function () {
-  //         let $easeOrder = $(this);
-  //         let $easeOrderItems = $easeOrder.find('.ease-order__item');
-  //
-  //         $easeOrderItems.each(function (i) {
-  //           let $this = $(this);
-  //           $this.attr('data-scroll', '');
-  //           window.setTimeout(function () {
-  //             $this.attr('data-scroll', 'in');
-  //           }, 300 * i);
-  //         });
-  //       });
-  //   },
-  // });
 
   /**
    * Remove placeholder on click

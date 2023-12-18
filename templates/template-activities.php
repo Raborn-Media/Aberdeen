@@ -43,6 +43,13 @@ get_header();
         'order'          => 'ASC',
         'orderby'        => 'ID',
         'posts_per_page' => 9,
+//        'tax_query'      => [
+//            array(
+//                'taxonomy' => 'activity_types',
+//                'field'    => 'slug',
+//                'terms'    => ['outdoor-activities']
+//            ),
+//        ],
         'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1, // Add pagination
 
     ) );

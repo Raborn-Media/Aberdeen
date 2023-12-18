@@ -84,7 +84,7 @@
 
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease-in-out;
+        transition: opacity 1s ease-out;
 
         .modal-image {
           width: 100%;
@@ -134,9 +134,10 @@
         }
       }
 
-      .card-modal-visible {
+      .card-modal.card-modal-visible {
         opacity: 1;
         visibility: visible;
+        transition: opacity 1s ease-out;
       }
 
       &:nth-child(even) {

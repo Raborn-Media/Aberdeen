@@ -80,12 +80,15 @@ $event_classes = tribe_get_post_class([
                         <?php _e('Learn more'); ?>
                     </a>
 
-                    <a href="" class="button button--web">
-                        <?php _e('VISIT WEBSITE'); ?>
-                    </a>
-                    <a href="" class="button button--pin">
-                        <?php _e('GET DIRECTIONS'); ?>
-                    </a>
+                    <?php if($event_website = get_field('event_website')) : ?>
+                        <a href="<?php echo $event_website;?>" class="button button--web">
+                            <?php _e('VISIT WEBSITE'); ?>
+                        </a>
+                    <?php endif; ?>
+
+<!--                    <a href="" class="button button--pin">-->
+<!--                        --><?php //_e('GET DIRECTIONS'); ?>
+<!--                    </a>-->
                 </div>
             </div>
 

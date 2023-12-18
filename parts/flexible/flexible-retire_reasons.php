@@ -22,7 +22,7 @@
                                         <?php echo $reason_title; ?>
                                     </h3>
                                 </div>
-                                <div class="card-modal hidden card-modal-<?php echo $i;?>">
+                                <div class="card-modal card-modal-<?php echo $i;?>">
                                     <div class="modal-image">
                                         <?php echo wp_get_attachment_image( $reason_image['id'], 'large' ); ?>
                                     </div>

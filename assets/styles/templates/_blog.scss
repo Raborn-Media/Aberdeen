@@ -11,6 +11,10 @@
   border-radius: 9px 0px;
   overflow: hidden;
   background-color: $white;
+
+  .content-col {
+    min-height: 291px;
+  }
 }
 
 .preview__meta {
@@ -38,6 +42,7 @@
 .preview__content {
   position: relative;
   height: 100%;
+  padding-bottom: 20px;
 
   .activity-type {
     color: $pacificblue;
