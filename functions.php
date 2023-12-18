@@ -356,3 +356,18 @@ display: none;
 }
 </style>';
 }
+
+// Add filter to remove srcset attribute
+function remove_image_srcset($sources) {
+    return false;
+}
+add_filter('wp_get_attachment_image_srcset', 'remove_image_srcset');
+function custom_get_attachment_image_without_srcset($attachment_id, $size = 'full') {
+    $image = wp_get_attachment_image_src($attachment_id, $size);
+    if ($image) {
+        return '<img src="' . $image[0] . '" alt="" data-no-lazy="1" decoding="async" loading="lazy" width="' . $image[1] . '" height="' . $image[2] . '">';
+    }
+    return '';
+}
+
+

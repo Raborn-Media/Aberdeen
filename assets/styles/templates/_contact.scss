@@ -13,6 +13,10 @@
 .contact {
   background: linear-gradient(180deg, #fff 0%, #e3f3fb 100%);
   padding-bottom: 474px;
+
+  @include breakpoint(small down) {
+    padding: 0 20px 474px;
+  }
 }
 
 .contact__content {

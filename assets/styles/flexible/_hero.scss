@@ -4,6 +4,7 @@
   padding-bottom: 205px;
   position: relative;
   background-position: center center;
+
   &:before {
     content: '';
     position: absolute;
@@ -18,6 +19,7 @@
       rgba(0, 0, 0, 0.3) 100%
     );
   }
+
   &:after {
     content: '';
     position: absolute;
@@ -40,6 +42,10 @@
 .page-id-42 .hero-section {
   background-size: 100%;
   background-position-y: top;
+
+  @include breakpoint(small down) {
+    background-size: cover;
+  }
 }
 
 .error404 {

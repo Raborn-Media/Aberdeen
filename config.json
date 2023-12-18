@@ -4,7 +4,9 @@
   "proxyUrl": "https://localhost:3000",
   "open": true,
   "bsWatchFiles": [
-    "**/*.php",
+    "inc/**/*.php",
+    "parts/**/*.php",
+    "templates/**/*.php",
     "assets/**/*.js"
   ]
 }

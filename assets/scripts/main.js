@@ -9,7 +9,7 @@ import 'jquery-match-height';
 import objectFitImages from 'object-fit-images';
 // import '@fancyapps/fancybox/dist/jquery.fancybox.min';
 // import { jarallax, jarallaxElement } from 'jarallax';
-// import ScrollOut from 'scroll-out';
+import ScrollOut from 'scroll-out';
 
 /**
  * Import scripts from Custom Divi blocks
@@ -198,23 +198,46 @@ $(document).on('ready', function () {
   /**
    * Detect element appearance in viewport
    */
+  ScrollOut({
+    offset: function () {
+      return window.innerHeight - 200;
+    },
+    once: false,
+    onShown: function (element) {
+      if ($(element).is('.ease-order')) {
+        $(element)
+          .find('.ease-order__item')
+          .each(function (i) {
+            let $this = $(this);
+            $(this).attr('data-scroll', '');
+            window.setTimeout(function () {
+              $this.attr('data-scroll', 'in');
+            }, 300 * i);
+          });
+      }
+    },
+  });
+
   // ScrollOut({
-  //   offset: function() {
+  //   offset: function () {
   //     return window.innerHeight - 200;
   //   },
-  //   once: true,
-  //   onShown: function(element) {
-  //     if ($(element).is('.ease-order')) {
-  //       $(element)
-  //         .find('.ease-order__item')
-  //         .each(function(i) {
+  //   once: false,
+  //   onShown: function (element) {
+  //     $(element)
+  //       .find('.ease-order')
+  //       .each(function () {
+  //         let $easeOrder = $(this);
+  //         let $easeOrderItems = $easeOrder.find('.ease-order__item');
+  //
+  //         $easeOrderItems.each(function (i) {
   //           let $this = $(this);
-  //           $(this).attr('data-scroll', '');
-  //           window.setTimeout(function() {
+  //           $this.attr('data-scroll', '');
+  //           window.setTimeout(function () {
   //             $this.attr('data-scroll', 'in');
   //           }, 300 * i);
   //         });
-  //     }
+  //       });
   //   },
   // });
 
@@ -464,14 +487,17 @@ if (!$('.search-results-section').length) {
 
 const pagination = document.querySelector('.pagination');
 
-// Get current page and total pages from data attributes
-const currentPage = parseInt(pagination.getAttribute('data-current-page'), 10);
-const totalPages = parseInt(pagination.getAttribute('data-total-pages'), 10);
-
-// Get reference to the pagination info div
-const paginationInfo = document.getElementById('pagination-info');
-
 // Update the text content of the elements with the current and total pages
 if (pagination) {
+  // Get current page and total pages from data attributes
+  const currentPage = parseInt(
+    pagination.getAttribute('data-current-page'),
+    10
+  );
+  const totalPages = parseInt(pagination.getAttribute('data-total-pages'), 10);
+
+  // Get reference to the pagination info div
+  const paginationInfo = document.getElementById('pagination-info');
+
   paginationInfo.innerHTML = `Page ${currentPage} of ${totalPages}`;
 }

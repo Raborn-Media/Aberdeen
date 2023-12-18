@@ -57,7 +57,7 @@ get_header();
                         <?php foreach ( $taxonomies as $taxonomy ) :
                             $tax_name = get_taxonomy( $taxonomy );
                             ?>
-                            <div class="filter-item">
+                            <div class="filter-item filter-<?php echo $taxonomy; ?>">
                                 <select id="<?php echo $taxonomy; ?>" class="tax-filter"
                                         filter-name="<?php echo $taxonomy; ?>">
                                     <option>

@@ -9,7 +9,7 @@ $section_top_image_title = get_sub_field('section_top_image_title');
             <div class="cell text-center">
                 <?php if ($section_top_image_title) : ?>
                     <div class="section-top-image-title">
-                        <?php echo wp_get_attachment_image($section_top_image_title['id'], 'large'); ?>
+                        <?php echo wp_get_attachment_image($section_top_image_title['id'], 'large', false, ['class' => '']); ?>
                     </div>
                 <?php endif; ?>
             </div>

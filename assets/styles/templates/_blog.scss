@@ -4,6 +4,7 @@
 .activities-section {
   background: linear-gradient(180deg, $white 0%, #e3f3fb 100%);
 }
+
 .preview {
   margin-bottom: 20px;
   border: 2px solid $aqualight;
@@ -56,14 +57,24 @@
       line-height: 140%; /* 19.6px */
     }
   }
+
+  .preview__excerpt {
+    margin-bottom: 16px;
+  }
 }
 
 .preview__buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+
   .button {
     position: relative;
     bottom: 0;
     margin-bottom: 0;
-    margin-right: 16px;
+    @include breakpoint(small down) {
+    }
   }
 }
 

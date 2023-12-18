@@ -14,7 +14,7 @@
     background-image: url('../../images/laurel.svg');
     background-size: 100% 100%;
     @include breakpoint(small down) {
-      opacity: 0;
+      display: none;
     }
   }
 
@@ -30,6 +30,9 @@
     background-size: 100% 100%;
     transform: rotateY(180deg);
     transform-origin: center;
+    @include breakpoint(small down) {
+      display: none;
+    }
   }
 
   .top-award {

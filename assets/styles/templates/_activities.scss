@@ -15,14 +15,52 @@
     z-index: 22;
 
     .filter-item {
+      position: relative;
       width: 30%;
 
       .tax-filter {
+        padding-left: 45px;
         //padding: 8px 12px;
-        padding-left: 12px;
+        //padding-left: 12px;
         border-radius: 4px;
         border: none;
         background-color: #f4f2f2;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 140%; /* 22.4px */
+        color: $midnight-blue;
+      }
+
+      &:before {
+        content: '';
+        font-family: $fa;
+        font-weight: 900;
+        font-size: 14px;
+        position: absolute;
+        display: block;
+        z-index: 99;
+        color: $midnight-blue;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .filter-activity_types {
+      &:before {
+        content: '\f0c9';
+      }
+    }
+    .filter-accessibility {
+      &:before {
+        content: '\f193';
+      }
+    }
+    .filter-duration {
+      &:before {
+        content: '\f017';
+        color: transparent;
+        -webkit-text-stroke: 1px $midnight-blue;
       }
     }
   }
@@ -35,6 +73,17 @@
   .activities-list {
     .preview {
       min-height: 330px;
+    }
+  }
+
+  @include breakpoint(small down) {
+    .filter-wrapper {
+      flex-direction: column;
+      gap: 16px;
+
+      .filter-item {
+        width: 100%;
+      }
     }
   }
 }

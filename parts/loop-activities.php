@@ -75,11 +75,11 @@
                         <?php _e( 'VISIT WEBSITE' ); ?>
                     </a>
                 <?php endif; ?>
-                <?php if ( ! is_search() && $address = get_field( 'activity_address' ) ) : ?>
-                    <a href="" class="button--pin button">
-                        <?php _e( 'GET DIRECTIONS' ); ?>
-                    </a>
-                <?php endif; ?>
+<!--                --><?php //if ( ! is_search() && $address = get_field( 'activity_address' ) ) : ?>
+<!--                    <a href="--><?php //the_permalink() ?><!--" class="button--pin button locatio-btn">-->
+<!--                        --><?php //_e( 'GET DIRECTIONS' ); ?>
+<!--                    </a>-->
+<!--                --><?php //endif; ?>
             </div>
         </div>
     </div>

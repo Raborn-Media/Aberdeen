@@ -91,7 +91,7 @@ global $post;
                 <?php endif; ?>
 
                 <?php if ( $location_map ) : ?>
-                    <div class="location-map">
+                    <div id="location-map" class="location-map">
                         <?php echo $location_map; ?>
                     </div>
                 <?php endif; ?>

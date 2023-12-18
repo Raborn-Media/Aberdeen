@@ -11,11 +11,17 @@
         padding-right: 0;
       }
     }
+    @include breakpoint(small down) {
+      .cell {
+        padding: 0;
+      }
+    }
   }
 
   .section-top-image-title {
-    max-width: 605px;
+    max-width: 645px;
     margin: 20px auto 60px;
+    padding: 0 20px;
   }
 
   .page-link {
@@ -42,9 +48,16 @@
       margin-left: 24px;
       border-radius: 24px 0;
       transition: all 0.5s ease-out;
+      box-shadow: 0px 8px 8px -4px rgba(65, 75, 90, 0.05),
+        0px 20px 24px -4px rgba(65, 75, 90, 0.15);
       &:hover {
         padding: 24px 12px 24px 36px;
       }
+    }
+  }
+  @include breakpoint(small down) {
+    .page-link {
+      min-height: 400px;
     }
   }
 }

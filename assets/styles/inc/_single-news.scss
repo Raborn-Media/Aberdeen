@@ -1,5 +1,8 @@
 .post-container {
   max-width: 792px;
+  @include breakpoint(small down) {
+    padding: 0 20px;
+  }
 }
 
 .single,
