@@ -51,9 +51,10 @@
           border-radius: 9px 0;
           width: 100%;
           max-width: 256px;
-          aspect-ratio: 1/1;
+          aspect-ratio: 1/0.85;
           position: relative;
           z-index: 2;
+          object-fit: cover;
         }
       }
 

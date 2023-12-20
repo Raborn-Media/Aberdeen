@@ -74,6 +74,20 @@
         color: $midnight-blue;
       }
     }
+    .gfield_checkbox {
+      .gfield-choice-input {
+        outline: none;
+        border: none;
+        &:before {
+          color: $midnight-blue;
+          font-weight: 600;
+          font-size: 18px;
+        }
+      }
+      .gform-field-label {
+        color: $white;
+      }
+    }
   }
 
   .gform_footer {

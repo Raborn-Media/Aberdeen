@@ -64,6 +64,11 @@ function resizeVideo() {
  * Scripts which runs after DOM load
  */
 $(document).on('ready', function () {
+  // Share button print
+  $('#share').on('click', function () {
+    window.print();
+  });
+
   // Get all elements of the flexible content
   var $flexibleSections = $('.flexible-section');
 
@@ -201,23 +206,24 @@ $(document).on('ready', function () {
    * Detect element appearance in viewport
    */
   ScrollOut({
-    offset: function () {
-      return window.innerHeight - 200;
-    },
+    // offset: 500,
+    // offset: function () {
+    //   return window.innerHeight - 100;
+    // },
     once: false,
-    onShown: function (element) {
-      if ($(element).is('.ease-order')) {
-        $(element)
-          .find('.ease-order__item')
-          .each(function (i) {
-            let $this = $(this);
-            $(this).attr('data-scroll', '');
-            window.setTimeout(function () {
-              $this.attr('data-scroll', 'in');
-            }, 300 * i);
-          });
-      }
-    },
+    // onShown: function (element) {
+    //   if ($(element).is('.ease-order')) {
+    //     $(element)
+    //       .find('.ease-order__item')
+    //       .each(function (i) {
+    //         let $this = $(this);
+    //         $(this).attr('data-scroll', '');
+    //         window.setTimeout(function () {
+    //           $this.attr('data-scroll', 'in');
+    //         }, 300 * i);
+    //       });
+    //   }
+    // },
   });
 
   /**

@@ -15,13 +15,14 @@
 }
 
 .home-slider {
-  background-color: $midnight-blue;
+  //background-color: $midnight-blue;
   position: relative;
 
   .slick-arrow {
     /* Slick arrows global styles */
     width: fit-content;
     height: auto;
+
     &:before {
       font-size: 3rem;
       opacity: 1;
@@ -32,6 +33,7 @@
         opacity: 0.75;
       }
     }
+
     @include breakpoint(small down) {
       display: none !important;
     }
@@ -156,6 +158,245 @@
       transform: translateX(-50%);
       text-align: center;
       width: 100%;
+    }
+  }
+}
+
+.home-slide__banner {
+  height: auto;
+  max-height: fit-content;
+  @include breakpoint(medium down) {
+    height: auto;
+    max-height: fit-content;
+  }
+}
+
+.home-slide__inner--image {
+  padding: 42px;
+
+  &:after {
+    display: none;
+  }
+}
+
+.home-slide__caption--pilgrimage {
+  color: #fff4e4;
+  max-width: 1422px;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+
+  .slide-info {
+    padding: 70px 15px;
+
+    .content {
+      h4 {
+        font-family: $buena-park-jf;
+        font-size: 29.342px;
+        font-weight: 400;
+        line-height: 120%; /* 35.211px */
+        margin-top: 42px;
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 20px;
+      max-width: 80%;
+      margin: 0 auto;
+
+      .bottom-text {
+        display: flex;
+        flex-direction: column;
+        //justify-content: space-between;
+        margin-top: 65px;
+
+        h4 {
+          font-family: $buena-park-jf;
+          font-size: 50px;
+          font-weight: 400;
+          line-height: 120%; /* 60px */
+          letter-spacing: 5px;
+          margin-bottom: 43px;
+          text-transform: uppercase;
+        }
+
+        h5 {
+          font-family: $buena-park-jf;
+          font-size: 22px;
+          font-weight: 400;
+          line-height: 120%; /* 26.4px */
+          margin-bottom: 24px;
+        }
+
+        .button {
+          max-width: fit-content;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+.home-slide__caption--mardi-gras {
+  padding: 33px 20px;
+  position: relative;
+
+  @media (min-width: 1024px) {
+    .left-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotate(-15deg);
+      transform-origin: center;
+    }
+    .right-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: rotate(15deg);
+      transform-origin: center;
+      max-width: 300px;
+    }
+  }
+
+  .slide-info-mardi-gras {
+    .content {
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h4 {
+        color: #67308f;
+        text-align: center;
+        font-family: $buena-park-jf;
+        font-size: 29.342px;
+        font-weight: 400;
+        line-height: 120%; /* 35.211px */
+        margin-top: 42px;
+      }
+
+      margin-bottom: 42px;
+    }
+
+    .slide-info__bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 20px;
+      max-width: 80%;
+      margin: 0 auto;
+
+      h4 {
+        color: $sun;
+        text-align: center;
+        font-family: $buena-park-jf;
+        font-size: 50px;
+        font-weight: 400;
+        line-height: 120%; /* 60px */
+        letter-spacing: 5px;
+        margin-bottom: 42px;
+      }
+
+      h5 {
+        color: #67308f;
+        font-family: $buena-park-jf;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 120%; /* 26.4px */
+        margin-bottom: 24px;
+      }
+
+      @include breakpoint(medium down) {
+        img {
+          aspect-ratio: 1/1;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(medium down) {
+    padding: 0;
+    br {
+      display: none;
+    }
+  }
+}
+
+.home-slide__caption--pilgrimage,
+.home-slide__caption--mardi-gras {
+  @include breakpoint(medium down) {
+    .slide-info {
+      padding: 20px;
+
+      &__bottom {
+        .left-image,
+        .right-image {
+          //aspect-ratio: 1/1;
+          max-width: 150px;
+        }
+      }
+
+      .content {
+        margin-bottom: 16px;
+        text-align: center;
+
+        img {
+          max-width: 150px;
+          margin: 0 auto;
+        }
+
+        h4 {
+          font-size: 18px;
+          margin-top: 0;
+        }
+      }
+
+      .bottom-text {
+        margin-top: 16px;
+
+        h4 {
+          font-size: 24px;
+          letter-spacing: 1px;
+          margin-bottom: 16px;
+        }
+
+        h5 {
+          font-size: 18px;
+        }
+
+        .button {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 835px) {
+    background-size: cover;
+    background-position: left;
+    br {
+      display: none;
+    }
+    .slide-info {
+      &__bottom {
+        flex-wrap: wrap;
+        max-width: 100%;
+
+        .bottom-text {
+          order: 1;
+          width: 100%;
+
+          h5 {
+            font-size: 16px;
+          }
+        }
+      }
     }
   }
 }

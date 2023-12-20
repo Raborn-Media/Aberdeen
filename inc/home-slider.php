@@ -212,6 +212,7 @@ add_shortcode( 'slider', function () {
                     autoplaySpeed: 5000,
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    adaptiveHeight: true,
                     rows: 0, // Prevent generating extra markup
                     slide: '.slick-slide', // Cause trouble with responsive settings
                 });
@@ -230,8 +231,9 @@ add_shortcode( 'slider', function () {
         <div id="home-slider" class="slick-slider home-slider">
             <?php while ( $slider->have_posts() ) :
                 $slider->the_post(); ?>
-                <div class="slick-slide home-slide">
-                    <div class="home-slide__inner" <?php bg( get_attached_img_url( get_the_ID(), 'full_hd' ) ); ?>>
+                <div class="slick-slide <?php echo get_post_format() !== 'video' ? 'home-slide__banner' : 'home-slide'; ?>">
+                    <div
+                        class="home-slide__inner <?php echo get_post_format() !== 'video' ? 'home-slide__inner--image' : ''; ?>" <?php bg( get_attached_img_url( get_the_ID(), 'full_hd' ) ); ?>>
                         <?php $bg_video_url = get_post_meta( get_the_ID(), 'slide_video_bg', true ); ?>
                         <?php if ( get_post_format() == 'video' && $bg_video_url ) : ?>
                             <div class="videoHolder"
@@ -262,16 +264,104 @@ add_shortcode( 'slider', function () {
                             </div>
                         <?php endif; ?>
 
-                        <div class="grid-container home-slide__caption">
-                            <div class="slide-info">
-                                <h3><?php the_title(); ?></h3>
-                                <?php if ( $slide_link = get_field( 'slide_link' ) ) : ?>
-                                    <a class="button button--arrow" href="<?php echo $slide_link['url']; ?>">
-                                        <?php echo $slide_link['title']; ?>
-                                    </a>
-                                <?php endif; ?>
+                        <?php if ( get_post_format() !== 'video' ) :
+                            $image_slide_caption = get_field( 'image_slide_caption' );
+                            $button_title = get_field( 'button_title' );
+                            $event_banner_format = get_field( 'event_banner_format' );
+                            ?>
+                            <?php if ( $event_banner_format == 'pilgrimage' ) : ?>
+                            <div
+                                class="grid-container home-slide__caption--pilgrimage" <?php bg( $image_slide_caption['url'], 'full_hd' ); ?>>
+                                <div class="slide-info slide-info-pilgrimage">
+                                    <div class="content">
+                                        <?php the_content(); ?>
+                                    </div>
+                                    <div class="slide-info__bottom">
+                                        <?php if ( $caption_left_image = get_field( 'caption_left_image' ) ) : ?>
+                                            <div class="left-image">
+                                                <?php echo wp_get_attachment_image( $caption_left_image["id"], 'large' ); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="bottom-text text-center">
+                                            <?php if ( $event_date = get_field( 'event_date' ) ) : ?>
+                                                <h4>
+                                                    <?php echo $event_date; ?>
+                                                </h4>
+                                                <?php if ( $button_title ) : ?>
+                                                    <h5>
+                                                        <?php echo $button_title; ?>
+                                                    </h5>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                            <?php if ( $slide_link = get_field( 'slide_link' ) ) : ?>
+                                                <a class="button button--arrow"
+                                                   href="<?php echo $slide_link['url']; ?>">
+                                                    <?php echo $slide_link['title']; ?>
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php if ( $caption_right_image = get_field( 'caption_right_image' ) ) : ?>
+                                            <div class="right-image">
+                                                <?php echo wp_get_attachment_image( $caption_right_image["id"], 'large' ); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        <?php elseif ($event_banner_format == 'mardi_gras') : ?>
+
+                            <div
+                                class="grid-container home-slide__caption--mardi-gras" <?php bg( $image_slide_caption['url'], 'full_hd' ); ?>>
+                                <div class="slide-info slide-info-mardi-gras">
+                                    <div class="content">
+                                        <?php the_content(); ?>
+                                    </div>
+                                    <div class="slide-info__bottom">
+                                        <?php if ( $caption_left_image = get_field( 'caption_left_image' ) ) : ?>
+                                            <div class="left-image">
+                                                <?php echo wp_get_attachment_image( $caption_left_image["id"], 'large' ); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="bottom-text text-center">
+                                            <?php if ( $event_date = get_field( 'event_date' ) ) : ?>
+                                                <h4>
+                                                    <?php echo $event_date; ?>
+                                                </h4>
+                                                <?php if ( $button_title ) : ?>
+                                                    <h5>
+                                                        <?php echo $button_title; ?>
+                                                    </h5>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                            <?php if ( $slide_link = get_field( 'slide_link' ) ) : ?>
+                                                <a class="button button--arrow"
+                                                   href="<?php echo $slide_link['url']; ?>">
+                                                    <?php echo $slide_link['title']; ?>
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php if ( $caption_right_image = get_field( 'caption_right_image' ) ) : ?>
+                                            <div class="right-image">
+                                                <?php echo wp_get_attachment_image( $caption_right_image["id"], 'large' ); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php else: ?>
+                            <div class="grid-container home-slide__caption">
+                                <div class="slide-info">
+                                    <h3><?php the_title(); ?></h3>
+                                    <?php if ( $slide_link = get_field( 'slide_link' ) ) : ?>
+                                        <a class="button button--arrow" href="<?php echo $slide_link['url']; ?>">
+                                            <?php echo $slide_link['title']; ?>
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
 
                 </div>

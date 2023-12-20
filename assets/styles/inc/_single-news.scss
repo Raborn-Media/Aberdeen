@@ -110,16 +110,38 @@
   }
 }
 
+.post-terms-wrap {
+  border-bottom: 2px solid $greenpea;
+  border-top: 2px solid $greenpea;
+  padding: 16px 24px 16px 0;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  #share {
+    cursor: pointer;
+    svg {
+      path {
+        transition: all 0.5s ease-out;
+      }
+    }
+    &:hover {
+      svg {
+        path {
+          fill: $sun;
+        }
+      }
+    }
+  }
+}
 .post-terms {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 16px;
   //padding: 16px 56px 16px 0;
-  padding: 16px 24px 16px 0;
-  border-bottom: 2px solid #f2f2f2;
-  border-top: 2px solid #f2f2f2;
-  margin-bottom: 32px;
 
   .term {
     display: flex;
