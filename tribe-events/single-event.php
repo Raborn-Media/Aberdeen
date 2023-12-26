@@ -80,18 +80,31 @@ $title_classes = implode( ' ', tribe_get_classes( $title_classes ) );
                                 <?php echo $custom_event_time; ?>
                             </p>
                         <?php else : ?>
-                            <p class="events-time hours post-info__item">
-                                <?php
+                        <?php if(tribe_event_is_all_day()) :
                                 $start_time = get_post_meta( $event_id, '_EventStartDate', true );
                                 $end_time   = get_post_meta( $event_id, '_EventEndDate', true );
 
-                                $formatted_start_time = date( 'g:i A', strtotime( $start_time ) );
-                                $formatted_end_time   = date( 'g:i A', strtotime( $end_time ) );
-
-                                // Output the formatted times
-                                echo $formatted_start_time . ' - ' . $formatted_end_time
+                                $formatted_start_time = date( 'd M', strtotime( $start_time ) );
+                                $formatted_end_time   = date( 'd M', strtotime( $end_time ) );
                                 ?>
-                            </p>
+                                <p class="events-time hours post-info__item">
+                                    <?php echo $formatted_start_time . ' - ' . $formatted_end_time; ?>
+                                </p>
+                            <?php else : ?>
+                                <p class="events-time hours post-info__item">
+                                    <?php
+                                    $start_time = get_post_meta( $event_id, '_EventStartDate', true );
+                                    $end_time   = get_post_meta( $event_id, '_EventEndDate', true );
+
+                                    $formatted_start_time = date( 'g:i A', strtotime( $start_time ) );
+                                    $formatted_end_time   = date( 'g:i A', strtotime( $end_time ) );
+
+                                    // Output the formatted times
+                                    echo $formatted_start_time . ' - ' . $formatted_end_time
+                                    ?>
+                                </p>
+                        <?php endif; ?>
+
                         <?php endif; ?>
                     </div>
                     <?php if ( $website ) : ?>

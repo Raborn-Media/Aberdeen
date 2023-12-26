@@ -30,26 +30,11 @@ get_header();
 <!-- BEGIN  activities-section -->
 <section class="activities-section flexible-section">
     <?php
-    //    $activities = array(
-    //        'post_type' => 'activities',
-    //        'order'     => 'ASC',
-    //        // ASC, DESC
-    //        'orderby'   => 'ID',
-    //        // none, ID, author, title, name, date, modified, parent, rand, comment_count, menu_order, meta_value, meta_value_num, title menu_order, post__in
-    ////        'posts_per_page' => - 1,
-    //    );
     $activities = new WP_Query( array(
         'post_type'      => 'activities',
         'order'          => 'ASC',
         'orderby'        => 'ID',
         'posts_per_page' => 9,
-//        'tax_query'      => [
-//            array(
-//                'taxonomy' => 'activity_types',
-//                'field'    => 'slug',
-//                'terms'    => ['outdoor-activities']
-//            ),
-//        ],
         'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1, // Add pagination
 
     ) );
