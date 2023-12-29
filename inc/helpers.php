@@ -327,3 +327,42 @@ function render_block_tempalte($filepath, $atts = [])
 
     echo '';
 }
+
+function get_share_link_url($post_id = null, $network = 'facebook')
+{
+    if (empty($post_id)) {
+        return false;
+    }
+    $raw_post_title = get_the_title($post_id);
+    $raw_post_url   = get_the_permalink($post_id);
+    $post_title     = urlencode($raw_post_title);
+    $post_url       = urlencode($raw_post_url);
+    $thumb_url      = has_post_thumbnail($post_id) ? urlencode(wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'medium_large')[0]) : '';
+    $share_url      = '';
+
+    switch ($network) {
+        case 'facebook':
+            $share_url = 'https://www.facebook.com/sharer/sharer.php?u=' . $post_url;
+            break;
+        case 'twitter':
+            $share_url = "https://twitter.com/intent/tweet?url={$post_url}&text={$post_title}";
+            break;
+        case 'linkedin':
+            $share_url = 'https://www.linkedin.com/cws/share?url=' . $post_url;
+            break;
+        case 'pinterest':
+            $share_url = "http://pinterest.com/pin/create/button/?url={$post_url}&media={$thumb_url}&description={$post_title}";
+            break;
+        case 'tumblr':
+            $share_url = "https://www.tumblr.com/share/link?url={$post_url}&name={$post_title}";
+            break;
+        case 'reddit':
+            $share_url = "https://reddit.com/submit?url={$post_url}&title={$post_title}";
+            break;
+        case 'email':
+            $share_url = "mailto:?subject={$post_title}&body={$post_url}";
+            break;
+    }
+
+    return $share_url;
+}

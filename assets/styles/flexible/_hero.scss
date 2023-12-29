@@ -58,3 +58,13 @@
     }
   }
 }
+
+.archive {
+  .hero-section {
+    min-height: 700px;
+
+    @include breakpoint(small down) {
+      min-height: unset;
+    }
+  }
+}
