@@ -30,11 +30,28 @@
 
   #sbi_images {
     margin-bottom: 40px;
+    gap: 16px;
   }
 
-  .sbi_item .sbi_photo_wrap {
-    border-radius: 24px 0;
-    overflow: hidden;
+  //.sbi_item .sbi_photo_wrap {
+  //  border-radius: 24px 0;
+  //  overflow: hidden;
+  //}
+
+  .sbi_inner_wrap {
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .sbi_caption_wrap {
+    text-align: left;
+  }
+
+  .sbi_expand {
+    display: none !important;
   }
 
   #sbi_load {

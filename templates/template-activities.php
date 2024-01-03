@@ -21,12 +21,6 @@ get_header();
 </section>
 <!-- END  hero-section -->
 
-<!-- BEGIN  filter -->
-<section class="filter">
-
-</section>
-<!-- END  filter -->
-
 <!-- BEGIN  activities-section -->
 <section class="activities-section flexible-section">
     <?php
