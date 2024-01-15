@@ -84,7 +84,7 @@ $section_button  = get_sub_field('section_button');
         <?php if ($section_button) : ?>
             <div class="grid-x">
                 <div class="cell text-center">
-                    <a href="<?php echo $section_button['URL']; ?>" class="button button--arrow">
+                    <a href="<?php echo $section_button['url']; ?>" class="button button--arrow">
                         <?php echo $section_button['title']; ?>
                     </a>
                 </div>

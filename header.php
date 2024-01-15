@@ -89,7 +89,7 @@
                                     <div class="link-wrap">
                                         <a href="<?php echo $link['url']; ?>">
                                             <div class="image">
-                                                <?php echo wp_get_attachment_image( $link_image['id'], 'large' ); ?>
+                                                <?php echo wp_get_attachment_image( $link_image['id'], 'large', false, ['loading' => 'eager'] ); ?>
                                             </div>
                                             <div class="link-title">
                                                 <?php echo $link['title']; ?>
@@ -113,7 +113,7 @@
                                     <div class="link-wrap">
                                         <a href="<?php echo $link['url']; ?>">
                                             <div class="image">
-                                                <?php echo wp_get_attachment_image( $link_image['id'], 'large' ); ?>
+                                                <?php echo wp_get_attachment_image( $link_image['id'], 'large', false, ['loading' => 'eager'] ); ?>
                                             </div>
                                             <div class="link-title">
                                                 <?php echo $link['title']; ?>

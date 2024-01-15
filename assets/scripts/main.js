@@ -335,6 +335,13 @@ $(window).on('resize', function () {
  */
 $(window).on('scroll', function () {
   // jQuery code goes here
+  $('.list-map [data-src]').each(function () {
+    // Replace data0src with src
+    var dataSrcValue = $(this).attr('data-src');
+    $(this).attr('src', dataSrcValue);
+    // Remove the data0src attribute
+    $(this).removeAttr('data-src');
+  });
 });
 
 /*
