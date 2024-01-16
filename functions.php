@@ -260,6 +260,7 @@ function ajax_institutions_pagination() {
         'order'          => 'ASC',
         'orderby'        => 'ID',
         'posts_per_page' => 10,
+        'post_status'    => 'publish',
         'paged'          => $paged,
         // Add pagination
     );

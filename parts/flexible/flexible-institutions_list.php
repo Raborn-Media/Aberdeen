@@ -22,6 +22,7 @@ $list_map          = get_sub_field( 'list_map' );
                     'order'          => 'ASC',
                     'orderby'        => 'ID',
                     'posts_per_page' => 10,
+                    'post_status'    => 'publish',
                     'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1, // Add pagination
 
                 ) );
