@@ -1,6 +1,7 @@
 <?php
 $section_icon  = get_sub_field( 'section_icon' );
 $section_title = get_sub_field( 'section_title' );
+$section_video = get_sub_field( 'section_video' );
 ?>
 
 <!-- BEGIN  testimonials-section -->
@@ -22,6 +23,15 @@ $section_title = get_sub_field( 'section_title' );
                         </h3>
                     <?php endif; ?>
                 </div>
+            </div>
+
+            <div class="cell">
+                <video src="<?php echo $section_video; ?>"
+                       autoplay
+                       preload="none"
+                       muted="muted"
+                       loop="loop"
+                       class="video testimonials-section__video"></video>
             </div>
 
             <?php

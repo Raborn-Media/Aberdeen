@@ -6,6 +6,7 @@
     border-radius: 9px 0;
     overflow: hidden;
     position: relative;
+
     &:after {
       content: '';
       position: absolute;
@@ -24,6 +25,7 @@
       width: 100%;
     }
   }
+
   .section-text {
     margin-left: 30px;
     display: flex;
@@ -60,6 +62,16 @@
     .section-text {
       margin-left: 0;
       margin-right: 30px;
+    }
+  }
+
+  @include breakpoint(medium down) {
+    .section-row,
+    .section-row__reverce {
+      .section-text,
+      .section-image {
+        margin: 0 auto 10px;
+      }
     }
   }
 }
