@@ -224,7 +224,7 @@ add_shortcode( 'slider', function () {
     $slider = new WP_Query( [
         'post_type'      => 'slider',
         'order'          => 'ASC',
-        'orderby'        => 'menu_order',
+        'orderby'        => 'ID',
         'posts_per_page' => - 1
     ] );
     if ( $slider->have_posts() ) : ?>

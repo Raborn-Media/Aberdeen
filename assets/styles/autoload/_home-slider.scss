@@ -222,6 +222,10 @@
           letter-spacing: 5px;
           margin-bottom: 43px;
           text-transform: uppercase;
+          span {
+            font-size: 29px;
+            display: block;
+          }
         }
 
         h5 {
@@ -248,18 +252,35 @@
   @media (min-width: 1024px) {
     .left-image {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 40px;
+      left: -30px;
       transform: rotate(-15deg);
       transform-origin: center;
+      background-color: rgba(#b1adaa, 0.7);
+      padding: 25px;
+      img {
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        max-width: 250px;
+      }
     }
     .right-image {
       position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: 30px;
+      right: -100px;
       transform: rotate(15deg);
       transform-origin: center;
-      max-width: 300px;
+      background-color: rgba(#b1adaa, 0.7);
+      padding: 25px;
+      img {
+        object-fit: cover;
+        max-width: 250px;
+      }
+    }
+  }
+  @media (min-width: 1440px) {
+    .right-image {
+      right: -30px;
     }
   }
 
@@ -300,6 +321,10 @@
         line-height: 120%; /* 60px */
         letter-spacing: 5px;
         margin-bottom: 42px;
+        span {
+          font-size: 29px;
+          display: block;
+        }
       }
 
       h5 {

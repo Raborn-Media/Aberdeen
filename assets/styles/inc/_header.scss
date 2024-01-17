@@ -326,7 +326,8 @@
         font-size: 18px;
         font-weight: 600;
         line-height: 140%; /* 25.2px */
-        color: $midnight-blue;
+        //color: $midnight-blue;
+        color: #197dac;
         text-transform: uppercase;
         position: relative;
         padding: 8px 0;
@@ -434,7 +435,8 @@
     line-height: 140%; /* 25.2px */
     text-transform: uppercase;
     padding: 0 20px;
-    color: $midnight-blue;
+    //color: $midnight-blue;
+    color: #197dac;
     cursor: pointer;
     span {
       padding: 8px 0;
