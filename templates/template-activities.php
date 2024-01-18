@@ -26,11 +26,11 @@ get_header();
     <?php
     $activities = new WP_Query( array(
         'post_type'      => 'activities',
-        'order'          => 'ASC',
-        'orderby'        => 'ID',
+        'order'          => 'DESC',
+        'post__not_in'   => array( 939, 945, 941, 943, 947 ),
+        'orderby'        => 'menu_order',
         'posts_per_page' => 9,
         'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1, // Add pagination
-
     ) );
     $posts      = $activities->posts;
     $taxonomies = get_taxonomies( [ 'object_type' => [ 'activities' ] ] );
@@ -72,7 +72,7 @@ get_header();
                         <span>&nbsp;&gt;&nbsp;</span>
                         <span>EXPLORE</span>
                         <span>&nbsp;&gt;&nbsp;</span>
-                        <span><?php the_title();?></span>
+                        <span><?php the_title(); ?></span>
                     </div>
                     <article class="text-center page-content">
                         <?php the_content(); ?>
@@ -85,9 +85,11 @@ get_header();
                     <div class="activities-wrap">
                         <div class="activities-list">
                             <!-- the loop -->
-                            <?php while ( $activities->have_posts() ) : $activities->the_post(); ?>
+                            <?php while ( $activities->have_posts() ) :
+                                $activities->the_post(); ?>
 
-                                <?php get_template_part( 'parts/loop', 'activities' ); // Post item?>
+                                <?php get_template_part( 'parts/loop', 'activities' ); // Post item
+                                ?>
 
                             <?php endwhile; ?>
                             <!-- end of the loop -->
@@ -131,6 +133,47 @@ get_header();
             </div>
         </div>
     <?php endif; ?>
+    <!-- BEGIN  nearby-attractions-section -->
+    <div class="nearby-attractions">
+        <div class="grid-container">
+            <div class="grid-x">
+                <?php if ( $attractions_section_top_content = get_field( 'attractions_section_top_content' ) ) : ?>
+                    <div class="cell">
+                        <article class="text-center page-content">
+                            <?php echo $attractions_section_top_content; ?>
+                        </article>
+                    </div>
+                <?php endif; ?>
+
+                <?php
+                $args = array(
+                    'post_type'      => 'activities',
+                    'order'          => 'ASC',
+                    'post__in'       => array( 939, 945, 941, 943, 947 ),
+                    'orderby'        => 'ID',
+                    'posts_per_page' => 5,
+
+                );
+                ?>
+
+                <?php $the_query = new WP_Query( $args ); ?>
+
+                <?php if ( $the_query->have_posts() ) : ?>
+                    <div class="nearby-attractions__list">
+                        <!-- the loop -->
+                        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                            <?php get_template_part( 'parts/loop', 'activities' ); // Post item
+                            ?>
+
+                        <?php endwhile; ?>
+                        <!-- end of the loop -->
+                        <?php wp_reset_postdata(); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <!-- END  nearby-attractions-section -->
 </section>
 <!-- END  activities-section -->
 

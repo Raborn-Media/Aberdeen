@@ -12,7 +12,8 @@
 }
 
 .header-top-bar {
-  background-color: $midnight-blue;
+  background-color: #197dac;
+  //background-color: $midnight-blue;
   padding: 8px 0;
   margin-bottom: 24px;
 
@@ -326,8 +327,8 @@
         font-size: 18px;
         font-weight: 600;
         line-height: 140%; /* 25.2px */
-        //color: $midnight-blue;
-        color: #197dac;
+        color: $midnight-blue;
+        //color: #197dac;
         text-transform: uppercase;
         position: relative;
         padding: 8px 0;
@@ -435,8 +436,8 @@
     line-height: 140%; /* 25.2px */
     text-transform: uppercase;
     padding: 0 20px;
-    //color: $midnight-blue;
-    color: #197dac;
+    color: $midnight-blue;
+    //color: #197dac;
     cursor: pointer;
     span {
       padding: 8px 0;

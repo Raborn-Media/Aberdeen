@@ -173,10 +173,11 @@ function ajax_filter_get_posts() {
     $paged  = $_POST['paged'];
 
     $args = array(
-        'order'          => 'ASC',
-        'orderby'        => 'ID',
+        'order'          => 'DESC',
+        'orderby'        => 'menu_order',
         'paged'          => $paged,
         'post_type'      => 'activities',
+        'post__not_in' => array(939, 945, 941, 943, 947),
         'posts_per_page' => 9,
         'tax_query'      => [
             'relation' => 'AND'
