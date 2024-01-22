@@ -20,7 +20,8 @@ $list_map          = get_sub_field( 'list_map' );
                 $institutions = new WP_Query( array(
                     'post_type'      => $post_type_to_show,
                     'order'          => 'ASC',
-                    'orderby'        => 'ID',
+//                    'orderby'        => 'ID',
+                    'orderby'        => 'menu_order',
                     'posts_per_page' => 10,
                     'post_status'    => 'publish',
                     'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1, // Add pagination
@@ -39,7 +40,7 @@ $list_map          = get_sub_field( 'list_map' );
                                 $city        = get_field( 'city' );
                                 ?>
                                 <a href="<?php the_permalink() ?>" class="institutions-list__item">
-                                    <div class="institution-icon">
+                                    <div class="institution-icon <?php echo $city === 'Aberdeen' ? 'blue-icon': '';?>">
                                         <div class="icon-wrap">
                                             <?php if ( $icon ) : ?>
                                                 <?php echo display_svg( $icon ); ?>

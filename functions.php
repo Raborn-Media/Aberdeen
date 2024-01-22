@@ -177,7 +177,8 @@ function ajax_filter_get_posts() {
         'orderby'        => 'menu_order',
         'paged'          => $paged,
         'post_type'      => 'activities',
-        'post__not_in' => array(939, 945, 941, 943, 947),
+        'post_status'    => 'publish',
+        'post__not_in'   => array( 939, 945, 941, 943, 947 ),
         'posts_per_page' => 9,
         'tax_query'      => [
             'relation' => 'AND'
@@ -259,7 +260,8 @@ function ajax_institutions_pagination() {
     $args         = array(
         'post_type'      => $post_type_to_show,
         'order'          => 'ASC',
-        'orderby'        => 'ID',
+//        'orderby'        => 'ID',
+        'orderby'        => 'menu_order',
         'posts_per_page' => 10,
         'post_status'    => 'publish',
         'paged'          => $paged,
@@ -280,33 +282,33 @@ function ajax_institutions_pagination() {
             <!-- the loop -->
 
             <a href="<?php the_permalink() ?>" class="institutions-list__item">
-                    <div class="institution-icon">
-                        <div class="icon-wrap">
-                            <?php if ( $icon ) : ?>
-                                <?php echo display_svg( $icon ); ?>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                    <div class="institution-info">
-                        <h4><?php the_title(); ?></h4>
-                        <?php if ( $post_type == 'hotels' ) : ?>
-                            <?php if ( $city ) : ?>
-                                <p class="institution-description">
-                                    <?php echo $city; ?>
-                                </p>
-                            <?php endif; ?>
-                        <?php else : ?>
-                            <?php if ( $description ) : ?>
-                                <p class="institution-description">
-                                    <?php echo $description; ?>
-                                </p>
-                            <?php else : ?>
-                                <p class="institution-description">
-                                    <?php _e( '---' ); ?>
-                                </p>
-                            <?php endif; ?>
+                <div class="institution-icon <?php echo $city === 'Aberdeen' ? 'blue-icon' : ''; ?>">
+                    <div class="icon-wrap">
+                        <?php if ( $icon ) : ?>
+                            <?php echo display_svg( $icon ); ?>
                         <?php endif; ?>
                     </div>
+                </div>
+                <div class="institution-info">
+                    <h4><?php the_title(); ?></h4>
+                    <?php if ( $post_type == 'hotels' ) : ?>
+                        <?php if ( $city ) : ?>
+                            <p class="institution-description">
+                                <?php echo $city; ?>
+                            </p>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <?php if ( $description ) : ?>
+                            <p class="institution-description">
+                                <?php echo $description; ?>
+                            </p>
+                        <?php else : ?>
+                            <p class="institution-description">
+                                <?php _e( '---' ); ?>
+                            </p>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
             </a>
 
         <?php endwhile;
@@ -350,7 +352,7 @@ function ajax_institutions_pagination() {
 add_action( 'wp_ajax_ajax_institutions_pagination', 'ajax_institutions_pagination' );
 add_action( 'wp_ajax_nopriv_ajax_institutions_pagination', 'ajax_institutions_pagination' );
 
-add_action('admin_head', 'my_custom_fonts');
+add_action( 'admin_head', 'my_custom_fonts' );
 function my_custom_fonts() {
     echo '<style>
 #event_tribe_organizer, #event_tribe_venue, #event_cost {
@@ -360,15 +362,17 @@ display: none;
 }
 
 // Add filter to remove srcset attribute
-function remove_image_srcset($sources) {
+function remove_image_srcset( $sources ) {
     return false;
 }
-add_filter('wp_get_attachment_image_srcset', 'remove_image_srcset');
-function custom_get_attachment_image_without_srcset($attachment_id, $size = 'full') {
-    $image = wp_get_attachment_image_src($attachment_id, $size);
-    if ($image) {
+
+add_filter( 'wp_get_attachment_image_srcset', 'remove_image_srcset' );
+function custom_get_attachment_image_without_srcset( $attachment_id, $size = 'full' ) {
+    $image = wp_get_attachment_image_src( $attachment_id, $size );
+    if ( $image ) {
         return '<img src="' . $image[0] . '" alt="" data-no-lazy="1" decoding="async" loading="lazy" width="' . $image[1] . '" height="' . $image[2] . '">';
     }
+
     return '';
 }
 
