@@ -96,40 +96,7 @@ get_header();
                             <!-- end of the loop -->
                             <?php wp_reset_postdata(); ?>
                         </div>
-                        <!--                        <div class="pagination">-->
-                        <div class="pagination-wrap">
-                            <?php $paged = max( 1, get_query_var( 'paged' ) ); // Get current page number
-                            ?>
-                            <div class="pagination"
-                                 data-current-page="<?php echo esc_attr( $paged ); ?>"
-                                 data-total-pages="<?php echo esc_attr( $activities->max_num_pages ); ?>">
-                                <?php
-
-                                // Pagination
-                                $big = 999999999; // An unlikely integer
-
-                                echo paginate_links(
-                                    array(
-                                        'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                                        'format'    => '?paged=%#%',
-                                        'current'   => max( 1, $paged ),
-                                        'total'     => $activities->max_num_pages, // Use $activities to get total pages
-                                        'prev_text' => '',
-                                        'next_text' => '',
-                                    )
-                                );
-                                ?>
-                            </div>
-                            <?php
-                            $activities_max_num_pages = $activities->max_num_pages;
-                            if ( $activities_max_num_pages > 1 ) : ?>
-                                <div id="pagination-info">
-                                    Page <span id="current-page"></span> of <span id="total-pages"></span>
-                                </div>
-                            <?php endif; ?>
-                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
