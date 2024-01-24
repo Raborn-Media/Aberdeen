@@ -95,8 +95,6 @@ add_action( 'wp_enqueue_scripts', function () {
         // wp_dequeue_style('wp-block-library');
 
         wp_enqueue_script( 'jquery' );
-//        wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.6.4.min.js', array(), '3.6.4', true );
-
 
         wp_enqueue_style( 'vendor.css' );
         wp_enqueue_style( 'main.css', asset_path( 'styles/main.css' ), [], null );
