@@ -7,8 +7,8 @@
 <!-- BEGIN of footer -->
 <?php if ( $cta_bg = get_field( 'cta_bg', 'options' ) ) : ?>
     <div class="cta-bg">
-<!--        --><?php //echo wp_get_attachment_image( $cta_bg['id'], 'full_hd'); ?>
-        <?php echo custom_get_attachment_image_without_srcset($cta_bg['id'], 'full_hd'); ?>
+        <!--        --><?php //echo wp_get_attachment_image( $cta_bg['id'], 'full_hd'); ?>
+        <?php echo custom_get_attachment_image_without_srcset( $cta_bg['id'], 'full_hd' ); ?>
     </div>
 <?php endif; ?>
 <div class="cta-section">
@@ -51,7 +51,9 @@
                 </div>
                 <?php if ( $cta_map_image = get_field( 'cta_map_image', 'options' ) ) : ?>
                     <div class="cta-map-image">
-                        <?php echo wp_get_attachment_image( $cta_map_image['id'], 'large' ); ?>
+                        <a href="<?php echo $cta_map_link['url']; ?>">
+                            <?php echo wp_get_attachment_image( $cta_map_image['id'], 'large' ); ?>
+                        </a>
                     </div>
                 <?php endif; ?>
             </div>

@@ -31,7 +31,7 @@ get_header();
         'orderby'        => 'menu_order',
 //        'posts_per_page' => 9,
         'posts_per_page' => - 1,
-        'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1, // Add pagination
+//        'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1, // Add pagination
     ) );
     $posts      = $activities->posts;
     $taxonomies = get_taxonomies( [ 'object_type' => [ 'activities' ] ] );
@@ -113,14 +113,6 @@ get_header();
                     </div>
                 <?php endif; ?>
 
-                <?php if ( $attractions_location_map = get_field( 'attractions_location_map' ) ) : ?>
-                    <div class="cell">
-                        <div class="list-map">
-                            <?php echo $attractions_location_map ?>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
                 <?php
                 $args = array(
                     'post_type'      => 'activities',
@@ -142,14 +134,7 @@ get_header();
                             <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                                 <!--                            --><?php //get_template_part( 'parts/loop', 'activities' ); // Post item
 //                            ?>
-                                <a href="<?php the_permalink() ?>" class="nearby-attractions__list-item">
-                                    <div class="attraction-icon">
-                                        <div class="icon-wrap">
-                                            <?php if ( $icon = get_field( 'attraction_icon' ) ) : ?>
-                                                <?php echo display_svg( $icon ); ?>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
+                                <div class="nearby-attractions__list-item">
                                     <div class="attraction-info">
                                         <h4><?php the_title(); ?></h4>
 
@@ -159,7 +144,7 @@ get_header();
                                             </p>
                                         <?php endif; ?>
                                     </div>
-                                </a>
+                                </div>
 
                             <?php endwhile; ?>
                             <!-- end of the loop -->

@@ -68,3 +68,47 @@
     }
   }
 }
+
+.map-legend {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+
+  &__markers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    &:before {
+      content: '\f3c5';
+      font-family: $fa;
+      font-size: 32px;
+      display: block;
+    }
+
+    p {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%; /* 25.2px */
+    }
+  }
+
+  .blue-marker {
+    &:before {
+      color: $pacificblue;
+    }
+  }
+  .red-marker {
+    &:before {
+      color: $cinnabar;
+    }
+  }
+}

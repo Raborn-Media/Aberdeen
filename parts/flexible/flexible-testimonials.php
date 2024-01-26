@@ -24,15 +24,16 @@ $section_video = get_sub_field( 'section_video' );
                     <?php endif; ?>
                 </div>
             </div>
-
-            <div class="cell">
-                <video src="<?php echo $section_video; ?>"
-                       autoplay
-                       preload="none"
-                       muted="muted"
-                       loop="loop"
-                       class="video testimonials-section__video"></video>
-            </div>
+            <?php if($section_video) : ?>
+                <div class="cell">
+                    <video src="<?php echo $section_video; ?>"
+                           autoplay
+                           preload="none"
+                           muted="muted"
+                           loop="loop"
+                           class="video testimonials-section__video"></video>
+                </div>
+            <?php endif; ?>
 
             <?php
             $featured_posts = get_sub_field( 'testimonials' );
