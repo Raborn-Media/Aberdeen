@@ -12,7 +12,10 @@
                             $reason_image = get_sub_field( 'reason_image' );
                             $reason_text  = get_sub_field( 'reason_text' );
                             ?>
-                            <div class="card" <?php echo bg( $reason_image['url'], 'full_hd' ); ?>>
+                            <div class="card">
+                                <div class="card-bg">
+                                    <?php echo wp_get_attachment_image($reason_image['id'], 'full_hd');?>
+                                </div>
                                 <div class="card-inner">
                                     <div class="number">
                                         <?php echo $i; ?>

@@ -10,14 +10,29 @@
     position: relative;
 
     .card {
+      width: 100%;
       max-width: 48.5%;
       color: $white;
       border-radius: 9px 0;
       position: relative;
-      transition: all 0.5s ease-out;
-      background-size: 100%;
-      background-position: center;
       cursor: pointer;
+
+      .card-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 9px 0;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: all 0.5s ease-out;
+        }
+      }
 
       &:before {
         content: '';
@@ -46,8 +61,9 @@
       }
 
       &:hover {
-        background-size: 120%;
-        background-position: center;
+        .card-bg img {
+          transform: scale(1.1);
+        }
       }
 
       .card-inner {
@@ -145,6 +161,13 @@
           left: unset;
           right: 0;
         }
+      }
+
+      @include breakpoint(medium down) {
+        max-width: 80%;
+      }
+      @include breakpoint(small down) {
+        max-width: 95%;
       }
     }
   }
