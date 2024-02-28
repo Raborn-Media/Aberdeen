@@ -33,7 +33,7 @@ endif;
             <?php if ( $list_map ) : ?>
                 <div class="cell">
                     <div class="list-map">
-                        <?php if ( $post_type_to_show == 'hotels' ) : ?>
+                        <?php if ( $post_type_to_show == 'hotels' || $post_type_to_show == 'restaurants' ) : ?>
                             <div class="map-legend">
                                 <div class="blue-marker map-legend__markers">
                                     <p>
