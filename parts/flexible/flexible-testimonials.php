@@ -29,7 +29,6 @@ $section_video = get_sub_field( 'section_video' );
                     <video src="<?php echo $section_video; ?>"
                            autoplay
                            preload="none"
-                           muted="muted"
                            loop="loop"
                            class="video testimonials-section__video"></video>
                 </div>
