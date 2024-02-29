@@ -63,6 +63,7 @@
         background-color: transparent;
         font-size: 28px;
       }
+
       .fa-instagram {
         font-size: 32px;
       }
@@ -77,6 +78,7 @@
         .fa-instagram {
           color: $sun;
         }
+
         .fa-facebook-f,
         .fa-pinterest-p {
           background-color: $sun;
@@ -85,6 +87,7 @@
     }
   }
 }
+
 .search-results-section {
   background: linear-gradient(180deg, $white 0%, #e3f3fb 100%);
 
@@ -114,14 +117,17 @@
     }
   }
 }
+
 .results-number {
   background-color: $aqualight;
   padding: 16px;
   max-width: fit-content;
+
   .search-count {
     font-weight: 700;
     margin-right: 5px;
   }
+
   span {
     font-size: 18px;
     font-weight: 500;
@@ -144,5 +150,31 @@
     br {
       display: none !important;
     }
+  }
+}
+
+.tribe-events .tribe-events-c-view-selector__button {
+  opacity: 0 !important;
+  width: 1px;
+
+  .tribe-events-c-view-selector__button-icon {
+    display: none !important;
+  }
+}
+
+#tribe-events-view-selector-content {
+  display: block !important;
+  visibility: visible !important;
+  top: 0 !important;
+  transform: translate(0) !important;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+
+  .tribe-events-c-view-selector__list {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
