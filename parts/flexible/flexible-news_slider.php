@@ -28,9 +28,9 @@ $news_list     = get_sub_field( 'news_list' );
             <?php
             $args = array(
                 'post_type'      => $news_list,
-                'order'          => 'ASC',
+                'order'          => 'DESC',
                 // ASC, DESC
-                'orderby'        => 'menu_order',
+                'orderby'        => 'date',
                 // none, ID, author, title, name, date, modified, parent, rand, comment_count, menu_order, meta_value, meta_value_num, title menu_order, post__in
                 'posts_per_page' => - 1,
             );
