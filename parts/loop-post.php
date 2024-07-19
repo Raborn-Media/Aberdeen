@@ -21,7 +21,7 @@
             <div class="preview__excerpt">
                 <?php the_excerpt(); // Use wp_trim_words() instead if you need specific number of words?>
             </div>
-            <p class="preview__meta"><?php echo sprintf(__('Written by %s on %s', 'fxy'), get_the_author_posts_link(), get_the_time(get_option('date_format'))); ?></p>
+            <p class="preview__meta"><?php echo sprintf(__('Written on %s', 'fxy'), get_the_time(get_option('date_format'))); ?></p>
         </div>
     </div>
 </article>

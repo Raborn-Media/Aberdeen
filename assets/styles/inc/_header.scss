@@ -11,6 +11,10 @@
   top: 32px;
 }
 
+.header-links {
+  display: none;
+}
+
 .header-top-bar {
   background-color: #197dac;
   //background-color: $midnight-blue;
@@ -24,29 +28,45 @@
     align-items: center;
     color: $white;
 
-    .map-link {
-      a {
-        font-size: 16px;
-        text-transform: uppercase;
-        font-weight: 600;
-        font-family: $font;
-        &:before {
-          content: url('../../images/map.svg');
-          width: 20px;
-          height: 20px;
-          margin-right: 8px;
-          vertical-align: middle;
-          display: inline-block;
+    .header-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 24px;
+      position: relative;
+
+      .map-link {
+        a {
+          font-size: 16px;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-family: $font;
+          &:before {
+            content: url('../../images/map.svg');
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+            display: inline-block;
+          }
         }
-        //&:before {
-        //  content: '\f279';
-        //  font-family: $fa;
-        //  color: transparent;
-        //  -webkit-text-stroke: 1px $white;
-        //  margin-right: 8px;
-        //  font-size: 14px;
-        //  vertical-align: middle;
-        //}
+      }
+
+      .blog-link {
+        a {
+          font-size: 16px;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-family: $font;
+          &:before {
+            content: url('../../images/map.svg');
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+            display: inline-block;
+          }
+        }
       }
     }
 

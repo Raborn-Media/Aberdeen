@@ -30,9 +30,9 @@
     "fix:styles": "prettier --write \"assets/**/*.scss\""
   },
   "devDependencies": {
-    "@squoosh/lib": "^0.4.0",
     "@babel/core": "^7.14.5",
     "@babel/preset-env": "^7.14.5",
+    "@squoosh/lib": "^0.4.0",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^9.1.0",
     "babel-minify-webpack-plugin": "^0.3.1",
@@ -60,9 +60,9 @@
     "object-fit-images": "^3.2.4",
     "optimize-css-assets-webpack-plugin": "^6.0.0",
     "postcss": "^8.3.2",
-    "postcss-scss": "^4.0.5",
     "postcss-loader": "^7.0.1",
     "postcss-safe-parser": "^6.0.0",
+    "postcss-scss": "^4.0.5",
     "prettier": "^2.3.1",
     "ramda": "^0.28.0",
     "resolve-url-loader": "^5.0.0",
@@ -96,5 +96,6 @@
     "scroll-out": "^2.2.12",
     "slick-carousel": "^1.8.1",
     "what-input": "^5.2.10"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
