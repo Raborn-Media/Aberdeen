@@ -32,13 +32,12 @@
 <header class="header">
     <div class='header-top-bar'>
         <div class='grid-container header-top-bar__container'>
-            <div class="header-links" style="display: flex; flex-direction: row; align-items: center; column-gap: 24px; position: relative;">
+            <div class="header-links">
                 <div class="map-link">
                     <a href="/map"><?php _e( 'Map' ); ?></a>
                 </div>
                 <div class="blog-link">
-                    <img src="./assets/images/map.svg" alt="" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle; display: inline-block;" />
-                    <a href="/blog" style="font-size: 16px; text-transform: uppercase; font-weight: 600; font-family: $font;"><?php _e( 'Blog' ); ?></a>
+                    <a href="/blog"><?php _e( 'Blog' ); ?></a>
                 </div>
             </div>
             <div class="header-contact-info">
