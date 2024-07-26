@@ -1,18 +1,22 @@
 <?php
 /**
  * Template Name: Blog
+ *
+ *  Use home.php for blog page instead
  */
 get_header();
-//$hero_image =
-?>
 
-<?php
-$hero_image = get_sub_field('hero_image');
+$hero_image = get_field('hero_image');
+// $hero_image = get_sub_field('hero_image');
 $hero_title = get_sub_field('hero_title')
 ?>
 
 <!-- BEGIN  hero-section -->
-<section id="blog-hero-section" class="hero-section flexible-section" <?php bg( $hero_image['url'], 'full_hd' ); ?>>
+ <!-- doesn't get hero image -->
+<!-- <section id="blog-hero-section" class="hero-section flexible-section" <?php bg( $hero_image['url'], 'full_hd' ); ?>> -->
+<!-- only works on local site, but doesn't work w/ flexible content hero image -->
+<section id="blog-hero-section" class="hero-section flexible-section" style="background: url('<?php echo $hero_image['url']; ?>')">
+
     <div class="grid-container">
         <div class="grid-x">
             <div class="cell text-center">

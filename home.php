@@ -7,20 +7,21 @@
 get_header(); ?>
 
 <?php
-$hero_image = get_sub_field('hero_image');
+// grabs blog page title
+$our_title = get_the_title( get_option('page_for_posts', true) );
+$slug = get_page_by_path( 'blog' );
+$hero_image = get_field('hero_image', $slug );
 $hero_title = get_sub_field('hero_title')
 ?>
 
 <!-- BEGIN  hero-section -->
-<!-- Doesn't grab any image -->
-<!-- <section id="blog-hero-section" class="hero-section flexible-section" <?php bg( $hero_image['url'], 'full_hd' ); ?>> -->
-<!-- this grabs featured image from first blog post -->
-<!-- <section id="blog-hero-section" class="hero-section flexible-section" <?php bg( get_attached_img_url( get_the_ID(), 'full_hd' ) ); ?>> -->
-<section id="blog-hero-section" class="hero-section flexible-section">
+<section id="blog-hero-section" class="hero-section flexible-section" style="background: url('<?php echo $hero_image['url']; ?>')">
     <div class="grid-container">
         <div class="grid-x">
             <div class="cell text-center">
-                <h1>Blog</h1>
+                <h1>
+                    <?php echo $our_title; ?>
+                </h1>
             </div>
         </div>
     </div>
@@ -33,7 +34,9 @@ $hero_title = get_sub_field('hero_title')
                 <div class="custom-breadcrumbs">
                     <a href="<?php echo get_home_url(); ?>" class="home-url">Home</a>
                     <span>&nbsp;&gt;&nbsp;</span>
-                    <span>Blog</span>
+                    <span>
+                        <?php echo $our_title; ?>
+                    </span>
                 </div>
                 <section class="blog-post-section flexible-section">
                     <?php
