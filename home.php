@@ -42,8 +42,6 @@ $hero_title = get_sub_field('hero_title')
                     <?php
                     $blog_post = new WP_Query( array(
                         'post_type'      => 'blog-post',
-                        'order'          => 'DESC',
-                        'orderby'        => 'menu_order',
                         'posts_per_page' => - 1,
                     ) );
                     $posts      = $blog_post->posts;

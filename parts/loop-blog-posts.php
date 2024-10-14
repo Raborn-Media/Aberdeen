@@ -8,8 +8,8 @@
                 </a>
             </div>
         <?php endif; ?>
-        <div class="cell auto post__preview">
-            <h3 class="preview__title">
+        <div class="cell auto post__preview" style="padding: 16px">
+            <h3 class="preview__title" style="margin-bottom: 16px">
                 <a href="<?php the_permalink(); ?>"
                 title="<?php echo esc_attr(sprintf(__('Permalink to %s', 'fxy'), the_title_attribute('echo=0'))); ?>"
                 rel="bookmark"><?php echo get_the_title() ?: __('No title', 'fxy'); ?>
@@ -18,7 +18,7 @@
             <?php if (is_sticky()) : ?>
                 <span class="secondary label preview__sticky"><?php _e('Sticky', 'fxy'); ?></span>
             <?php endif; ?>
-            <div class="preview__excerpt">
+            <div class="preview__excerpt" style="margin-bottom: 16px">
                 <?php the_excerpt(); // Use wp_trim_words() instead if you need specific number of words?>
             </div>
             <div class="blog-post-buttons">
