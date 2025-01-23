@@ -135,7 +135,7 @@ function get_attached_img_url($id = 0, $size = "medium_large")
 {
     $img = wp_get_attachment_image_src(get_post_thumbnail_id($id), $size);
 
-    return $img[0];
+    return $img[0] ?? '';
 }
 
 /**

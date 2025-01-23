@@ -312,7 +312,7 @@ add_shortcode( 'slider', function () {
                         <?php elseif ($event_banner_format == 'mardi_gras') : ?>
 
                             <div
-                                class="grid-container home-slide__caption--mardi-gras" <?php bg( $image_slide_caption['url'], 'full_hd' ); ?>>
+                                class="grid-container home-slide__caption--mardi-gras" <?php bg( $image_slide_caption['url'] ?? '', 'full_hd' ); ?>>
                                 <div class="slide-info slide-info-mardi-gras">
                                     <div class="content">
                                         <?php the_content(); ?>

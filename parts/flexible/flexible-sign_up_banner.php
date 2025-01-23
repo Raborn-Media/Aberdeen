@@ -24,7 +24,7 @@ $section_button          = get_sub_field( 'section_button' );
         <div class="grid-x">
             <div class="cell">
                 <div class="banner">
-                    <?php echo wp_get_attachment_image( $section_bg['id'], 'full_hd', false, ['class' => 'banner-bg'] ); ?>
+                    <?php echo wp_get_attachment_image( $section_bg['id'] ?? '', 'full_hd', false, ['class' => 'banner-bg'] ); ?>
                     <div class="banner-content">
                         <?php if ( $mail_icon ) : ?>
                             <div class="banner-content__mail-icon">
